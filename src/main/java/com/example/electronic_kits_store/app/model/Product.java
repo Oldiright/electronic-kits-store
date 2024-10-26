@@ -7,15 +7,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
-
-import java.io.Serializable;
-
-
-//@MappedSuperclass
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Data
 public abstract class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

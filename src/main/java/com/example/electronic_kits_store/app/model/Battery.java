@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "battery")
-@PrimaryKeyJoinColumn(name = "batteryId")
+@PrimaryKeyJoinColumn(name = "battery_id")
 public class Battery extends Product {
     @Column(name = "nominal_voltage")
     private int nominalVoltage;

@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-@PrimaryKeyJoinColumn(name = "inverterId")
+@PrimaryKeyJoinColumn(name = "inverter_id")
 @Table(name = "inverter")
 public class Inverter extends Product {
     @Column(name = "power")

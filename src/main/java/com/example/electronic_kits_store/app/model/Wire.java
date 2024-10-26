@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "wire")
-@PrimaryKeyJoinColumn(name = "wireId")
+@PrimaryKeyJoinColumn(name = "wire_id")
 public class Wire extends Product {
     @Column(name = "color")
     private String color;

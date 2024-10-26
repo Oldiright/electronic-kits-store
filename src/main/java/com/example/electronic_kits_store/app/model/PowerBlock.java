@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Data
 @Table(name = "Power_block")
-@PrimaryKeyJoinColumn(name = "powerBlockId")
+@PrimaryKeyJoinColumn(name = "powerBlock_id")
 public class PowerBlock extends Product {
     @Column(name = "min_voltage")
     private int minVoltage;

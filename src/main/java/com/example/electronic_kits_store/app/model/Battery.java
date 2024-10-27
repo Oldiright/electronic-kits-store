@@ -19,6 +19,8 @@ public class Battery extends Product {
     private int capacity;
     @Column(name = "form")
     private FormFactor form;
+    @Column(name = "battery_terminal_diameter")
+    private int batteryTerminalDiameter;
 
     public enum FormFactor {
         PRISMATIC,

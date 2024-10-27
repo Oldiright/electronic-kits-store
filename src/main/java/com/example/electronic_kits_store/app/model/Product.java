@@ -2,6 +2,8 @@ package com.example.electronic_kits_store.app.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,4 +27,18 @@ public abstract class Product {
     private byte rating;
     @Column(name = "picture")
     private String pictureUrl;
+    @Column(name = "category")
+    @Enumerated(EnumType.ORDINAL)
+    private Category pruductCategory;
+
+
+    public enum Category {
+        BATTERY,
+        BMS,
+        INVERTER,
+        POWER_BLOCK,
+        WIRE,
+        WIRE_LUG,
+        OTHER
+    }
 }

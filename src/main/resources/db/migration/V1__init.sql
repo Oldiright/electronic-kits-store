@@ -1,12 +1,17 @@
-CREATE SEQUENCE IF NOT EXISTS product_seq START WITH 1 INCREMENT BY 50;
+CREATE SEQUENCE IF NOT EXISTS product_seq_id
+    START WITH 1
+    INCREMENT BY 1;
+
+
 CREATE TABLE IF NOT EXISTS product (
-    id BIGINT NOT NULL PRIMARY KEY,
+    id BIGINT DEFAULT nextval('product_seq_id'),
     cost INTEGER,
     rating TINYINT,
     description VARCHAR(1000),
     name VARCHAR(120),
     picture VARCHAR(255),
-    category TINYINT
+    category TINYINT,
+    CONSTRAINT pk_customers_id PRIMARY KEY (id)
 );
 
 -- Створюємо таблицю battery
@@ -37,6 +42,8 @@ CREATE TABLE IF NOT EXISTS inverter (
     power INTEGER,
     FOREIGN KEY (inverter_id) REFERENCES product(id)
 );
+
+
 
 -- Створюємо таблицю miscellaneous
 CREATE TABLE IF NOT EXISTS miscellaneous (

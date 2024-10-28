@@ -9,13 +9,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Data
-public abstract class Product {
+public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
+    @SequenceGenerator(name = "product_seq", sequenceName = "product_seq_id", allocationSize = 1)
     private long id;
     @Column(name = "name")
     private String name;
@@ -29,7 +31,7 @@ public abstract class Product {
     private String pictureUrl;
     @Column(name = "category")
     @Enumerated(EnumType.ORDINAL)
-    private Category pruductCategory;
+    private Category productCategory;
 
 
     public enum Category {

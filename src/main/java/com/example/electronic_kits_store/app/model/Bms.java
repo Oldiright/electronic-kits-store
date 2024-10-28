@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "BMS")
 @PrimaryKeyJoinColumn(name = "BMS_id")
-public class BMS extends Product {
+public class Bms extends Product {
     @Column(name = "max_power")
     private int maxPower;
     @Column(name = "balancer_type")

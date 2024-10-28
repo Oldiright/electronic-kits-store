@@ -35,7 +35,7 @@ public class TestController {
     private final WireLugService wireLugService;
 
     @GetMapping("/findAll")
-    public Object findAllWithDetails(@RequestParam boolean details) throws JsonProcessingException {
+    public Object findAllWithDetails(@RequestParam boolean details) {
         if (details) {
             return productService.findAllWithDetails();
         }

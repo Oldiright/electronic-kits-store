@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS product (
     rating TINYINT,
     description VARCHAR(1000),
     name VARCHAR(120),
+    manufacturer VARCHAR(50),
     picture VARCHAR(255),
     category TINYINT,
     CONSTRAINT pk_customers_id PRIMARY KEY (id)

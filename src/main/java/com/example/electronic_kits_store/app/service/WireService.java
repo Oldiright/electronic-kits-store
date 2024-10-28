@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,4 +16,15 @@ public class WireService {
     public List<Wire> findAll() {
         return wireRepository.findAll();
     }
+
+    public Optional<Wire> findById(Long id) {
+        return wireRepository.findById(id);
+    }
+
+    public Wire create(Wire wire) {
+        return wireRepository.save(wire);
+    }
+
+    public void delete(Long id) { wireRepository.deleteById(id); }
 }
+

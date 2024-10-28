@@ -21,6 +21,17 @@ public class ProductService {
     public List<ProductProjection> findAll() {
         return productRepository.findAllProjectedBy();
     }
-
+    public Product create(Product product) {
+        return productRepository.save(product);
+    }
+    public List<ProductProjection> findByManufacturer(String manufacturer) {
+        return productRepository.findAllProjectedByManufacturer(manufacturer);
+    }
+    public List<ProductProjection> findByCategory(Product.Category category) {
+        return productRepository.findAllProjectedByProductCategory(category);
+    }
+    public void delete(Long id) {
+        productRepository.deleteById(id);
+    }
 
 }

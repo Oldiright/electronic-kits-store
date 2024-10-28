@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -14,4 +15,14 @@ public class InverterService {
     public List<Inverter> findAll() {
         return inverterRepository.findAll();
     }
+
+    public Optional<Inverter> findById(Long id) {
+        return inverterRepository.findById(id);
+    }
+
+    public Inverter create(Inverter inverter) {
+        return inverterRepository.save(inverter);
+    }
+
+    public void delete(Long id) { inverterRepository.deleteById(id); }
 }

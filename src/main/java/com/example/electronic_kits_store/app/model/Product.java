@@ -23,6 +23,8 @@ public class Product {
     private String name;
     @Column(name = "cost")
     private int cost;
+    @Column(name = "manufacturer")
+    private String manufacturer;
     @Column(name = "description")
     private String description;
     @Column(name = "rating")

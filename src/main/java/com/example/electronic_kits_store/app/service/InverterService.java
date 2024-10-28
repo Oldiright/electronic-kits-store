@@ -1,6 +1,4 @@
 package com.example.electronic_kits_store.app.service;
-
-import com.example.electronic_kits_store.app.model.Bms;
 import com.example.electronic_kits_store.app.model.Inverter;
 import com.example.electronic_kits_store.app.repository.InverterRepository;
 import lombok.RequiredArgsConstructor;

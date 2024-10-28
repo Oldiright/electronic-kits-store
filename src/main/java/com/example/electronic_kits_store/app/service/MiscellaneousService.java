@@ -1,6 +1,4 @@
 package com.example.electronic_kits_store.app.service;
-
-import com.example.electronic_kits_store.app.model.Inverter;
 import com.example.electronic_kits_store.app.model.Miscellaneous;
 import com.example.electronic_kits_store.app.repository.MiscellaneousRepository;
 import lombok.RequiredArgsConstructor;

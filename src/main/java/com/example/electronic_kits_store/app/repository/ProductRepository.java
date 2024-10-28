@@ -1,6 +1,5 @@
 package com.example.electronic_kits_store.app.repository;
 
-import com.example.electronic_kits_store.app.model.Battery;
 import com.example.electronic_kits_store.app.model.Product;
 import com.example.electronic_kits_store.app.model.projection.ProductProjection;
 import org.springframework.data.jpa.repository.JpaRepository;

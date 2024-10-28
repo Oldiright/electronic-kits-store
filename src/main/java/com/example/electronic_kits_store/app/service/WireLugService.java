@@ -1,5 +1,4 @@
 package com.example.electronic_kits_store.app.service;
-import com.example.electronic_kits_store.app.model.PowerBlock;
 import com.example.electronic_kits_store.app.model.WireLug;
 import com.example.electronic_kits_store.app.repository.WireLugRepository;
 import lombok.RequiredArgsConstructor;

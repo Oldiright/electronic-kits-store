@@ -1,7 +1,6 @@
 package com.example.electronic_kits_store.app.model;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 

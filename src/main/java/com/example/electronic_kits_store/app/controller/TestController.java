@@ -13,7 +13,6 @@ import com.example.electronic_kits_store.app.service.MiscellaneousService;
 import com.example.electronic_kits_store.app.service.ProductService;
 import com.example.electronic_kits_store.app.service.WireLugService;
 import com.example.electronic_kits_store.app.service.WireService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

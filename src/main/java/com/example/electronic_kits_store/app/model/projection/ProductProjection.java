@@ -1,13 +1,15 @@
 package com.example.electronic_kits_store.app.model.projection;
 
+import com.example.electronic_kits_store.app.model.Product;
+
 public interface ProductProjection {
     Long getId();
     String getName();
-    Double getCost();
+    int getCost();
     String getManufacturer();
     String getDescription();
-    Integer getRating();
+    byte getRating();
     String getPictureUrl();
-    String getProductCategory();
+    Product.Category getProductCategory();
 
 }

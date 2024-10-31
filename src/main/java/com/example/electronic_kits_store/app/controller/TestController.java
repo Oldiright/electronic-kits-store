@@ -20,7 +20,7 @@ public class TestController {
     private final ProductService productService;
 
     @GetMapping("/all")
-    public Object findAll(HttpServletResponse response, @RequestParam(value = "details", defaultValue = "false") boolean details) {
+    public Object findAll(@RequestParam(value = "details", defaultValue = "false") boolean details) {
         if (details) {
             return productService.findAllWithDetails();
         }

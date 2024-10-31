@@ -20,7 +20,7 @@ public class CardService {
                 String[] itemDetails = orderItem[i].split("x");
                 if (itemDetails[0].equals(id.toString())) {
                     itemDetails[1] = String.valueOf(Integer.parseInt(itemDetails[1]) + 1);
-                    orderItem[i] = id.toString() + "x" + itemDetails[1];
+                    orderItem[i] = id + "x" + itemDetails[1];
                     isCardHasNewItem = true;
                     break;
                 }
@@ -53,7 +53,7 @@ public class CardService {
                 } else {
                     if (Integer.parseInt(itemDetails[1]) > 1) {
                         itemDetails[1] = String.valueOf(Integer.parseInt(itemDetails[1]) - 1);
-                        item = id.toString() + "x" + itemDetails[1];
+                        item = id + "x" + itemDetails[1];
                         stringJoiner.add(item);
                     }
                 }

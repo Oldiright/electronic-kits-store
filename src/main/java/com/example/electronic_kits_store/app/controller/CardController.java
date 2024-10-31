@@ -25,7 +25,7 @@ public class CardController {
     @ResponseBody
     public ResponseEntity<?> addCardItem(HttpServletRequest request, HttpServletResponse response,
                                           @RequestParam Long id) {
-        cardService.addCardItem(request, response, id);;
+        cardService.addCardItem(request, response, id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @DeleteMapping

@@ -3,7 +3,6 @@ package com.example.electronic_kits_store.app.controller;
 import com.example.electronic_kits_store.app.model.Product;
 import com.example.electronic_kits_store.app.model.projection.ProductProjection;
 import com.example.electronic_kits_store.app.service.ProductService;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

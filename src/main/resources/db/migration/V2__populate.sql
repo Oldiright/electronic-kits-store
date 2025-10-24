@@ -1,38 +1,38 @@
 INSERT INTO product (id, name, cost, description, rating, picture, category, manufacturer)
 VALUES
     -- Battery
-    (NEXTVAL('product_seq_id'), 'Літієва батарея 12В', 1500, 'Надійна батарея для зберігання енергії', 5, 'battery_12v.jpg', 0, 'CATL'),
-    (NEXTVAL('product_seq_id'), 'Акумулятор 18650', 300, 'Літієвий акумулятор 3.7В', 4, 'battery_18650.jpg', 0, 'Envision'),
-    (NEXTVAL('product_seq_id'), 'Батарея AGM 6В', 700, 'Надійна свинцева батарея', 3, 'battery_agm.jpg', 0, 'CATL'),
-    (NEXTVAL('product_seq_id'), 'LiFePO4 батарея 24В', 2500, 'Екологічна батарея великої ємності', 5, 'battery_lifepo4.jpg', 0, 'EVE'),
+    (NEXTVAL('product_seq_id'), 'Літієва батарея 12В', 14400, 'Надійна батарея для зберігання енергії', 5, 'battery_12v.jpg', 0, 'Jsdsolar'),
+    (NEXTVAL('product_seq_id'), 'Акумулятор 18650', 199, 'Літієвий акумулятор 3.7В', 4, 'battery_18650.jpg', 0, 'Samsung'),
+    (NEXTVAL('product_seq_id'), 'Батарея AGM 6В', 210, 'Надійна свинцева батарея', 3, 'battery_agm.jpg', 0, 'Merlion'),
+    (NEXTVAL('product_seq_id'), 'LiFePO4 батарея 24В', 2500, 'Екологічна батарея великої ємності', 5, 'battery_lifepo4.jpg', 0, 'Jsdsolar'),
 
     -- BMS
-    (NEXTVAL('product_seq_id'), 'BMS для батарей 24В', 1000, 'Балансуюча система для 24В батарей', 4, 'bms_24v.jpg', 1, 'JKONG'),
+    (NEXTVAL('product_seq_id'), 'BMS для батарей 24В', 1000, 'Балансуюча система для 24В батарей', 4, 'bms_24v.jpg', 1, 'Smart BMS'),
     (NEXTVAL('product_seq_id'), 'BMS для 12В', 800, 'БМС для акумуляторів 12В', 4, 'bms_12v.jpg', 1, 'JKONG'),
-    (NEXTVAL('product_seq_id'), 'BMS для LiFePO4', 1200, 'Балансуюча система для LiFePO4', 5, 'bms_lifepo4.jpg', 1, 'JKONG'),
+    (NEXTVAL('product_seq_id'), 'BMS для LiFePO4', 1200, 'Балансуюча система для LiFePO4', 5, 'bms_lifepo4.jpg', 1, 'China'),
     (NEXTVAL('product_seq_id'), 'BMS з Bluetooth', 1500, 'Система з підтримкою Bluetooth', 4, 'bms_bluetooth.jpg', 1, 'JKONG'),
 
     -- Inverter
-    (NEXTVAL('product_seq_id'), 'Інвертор 500Вт', 2000, 'Інвертор на 500 Вт з низьким споживанням', 4, 'inverter_500w.jpg', 2, 'DATOUBOSS'),
+    (NEXTVAL('product_seq_id'), 'Інвертор 500Вт', 2000, 'Інвертор на 500 Вт з низьким споживанням', 4, 'inverter_500w.jpg', 2, 'UKC'),
     (NEXTVAL('product_seq_id'), 'Інвертор 1000Вт', 3000, 'Інвертор на 1000 Вт', 5, 'inverter_1000w.jpg', 2, 'VERICA'),
-    (NEXTVAL('product_seq_id'), 'Інвертор 2000Вт', 5000, 'Інвертор на 2000 Вт', 5, 'inverter_2000w.jpg', 2, 'DATOUBOSS'),
-    (NEXTVAL('product_seq_id'), 'Міні інвертор 300Вт', 1500, 'Компактний інвертор на 300 Вт', 3, 'inverter_300w.jpg', 2, 'DATOUBOSS'),
+    (NEXTVAL('product_seq_id'), 'Інвертор 2000Вт', 11499, 'Інвертор на 2000 Вт', 5, 'inverter_2000w.jpg', 2, 'DATOUBOSS'),
+    (NEXTVAL('product_seq_id'), 'Міні інвертор 300Вт', 1500, 'Компактний інвертор на 300 Вт', 3, 'inverter_300w.jpg', 2, 'ALCA'),
 
     -- PowerBlock
-    (NEXTVAL('product_seq_id'), 'Блок живлення 12-24В', 2500, 'Регульований блок живлення', 3, 'power_block.jpg', 3, 'China'),
+    (NEXTVAL('product_seq_id'), 'Блок живлення 12-36В', 2500, 'Регульований блок живлення', 3, 'power_block.jpg', 3, 'China'),
     (NEXTVAL('product_seq_id'), 'Блок живлення 5В', 1000, 'Компактний блок живлення 5В', 4, 'power_block_5v.jpg', 3, 'China'),
     (NEXTVAL('product_seq_id'), 'Блок живлення 48В', 4000, 'Блок живлення високої напруги', 5, 'power_block_48v.jpg', 3, 'Japan'),
     (NEXTVAL('product_seq_id'), 'Регульований блок 1-24В', 2800, 'Блок живлення з регулюванням напруги', 4, 'power_block_adj.jpg', 3, 'China'),
 
     -- Wire
     (NEXTVAL('product_seq_id'), 'Кабель мідний 2.5мм', 100, 'Мідний кабель з високою провідністю', 5, 'wire_2.5mm.jpg', 4, 'China'),
-    (NEXTVAL('product_seq_id'), 'Кабель алюмінієвий 1.5мм', 80, 'Алюмінієвий кабель', 4, 'wire_1.5mm.jpg', 4, 'China'),
-    (NEXTVAL('product_seq_id'), 'Кабель 3мм червоний', 120, 'Мідний кабель червоного кольору', 5, 'wire_3mm.jpg', 4, 'Ukraine'),
-    (NEXTVAL('product_seq_id'), 'Кабель 4мм чорний', 150, 'Мідний кабель чорного кольору', 5, 'wire_4mm.jpg', 4, 'EU'),
+    (NEXTVAL('product_seq_id'), 'Кабель алюмінієвий 2.5мм', 80, 'Алюмінієвий кабель', 4, 'wire_1.5mm.jpg', 4, 'China'),
+    (NEXTVAL('product_seq_id'), 'Кабель 3.4мм червоний', 120, 'Мідний кабель червоного кольору', 5, 'wire_3.4mm.jpg', 4, 'Ukraine'),
+    (NEXTVAL('product_seq_id'), 'Кабель 4мм чорний', 150, 'Мідний кабель чорного кольору', 5, 'wire_3.4mmBLACK.jpg', 4, 'EU'),
 
     -- WireLug
     (NEXTVAL('product_seq_id'), 'Клема на 2.5мм кабель', 50, 'Клема для мідного кабелю', 4, 'wire_lug_2.5mm.jpg', 5, 'Ukraine'),
-    (NEXTVAL('product_seq_id'), 'Клема на 4мм кабель', 60, 'Клема для великого перерізу', 4, 'wire_lug_4mm.jpg', 5, 'Ukraine'),
+    (NEXTVAL('product_seq_id'), 'Клема на 4.8мм кабель', 60, 'Клема для великого перерізу', 4, 'wire_lug_4.8mm.jpg', 5, 'Ukraine'),
     (NEXTVAL('product_seq_id'), 'Клема мідна 1.5мм', 40, 'Мідна клема', 3, 'wire_lug_1.5mm.jpg', 5, 'China'),
     (NEXTVAL('product_seq_id'), 'Клема алюмінієва 3мм', 45, 'Алюмінієва клема', 3, 'wire_lug_3mm.jpg', 5, 'EU'),
 
@@ -47,9 +47,9 @@ VALUES
 -- Battery
 INSERT INTO battery (battery_id, battery_terminal_diameter, capacity, form, nominal_voltage)
 VALUES
-    (1, 5, 2000, 1, 12),
-    (2, 2, 2500, 0, 4),
-    (3, 4, 5000, 1, 6),
+    (1, 5, 200, 0, 12),
+    (2, 2, 3, 1, 3),
+    (3, 4, 6, 1, 6),
     (4, 5, 8000, 1, 24);
 
 -- BMS

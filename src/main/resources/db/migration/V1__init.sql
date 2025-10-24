@@ -5,15 +5,20 @@ CREATE SEQUENCE IF NOT EXISTS product_seq_id
 
 CREATE TABLE IF NOT EXISTS product (
     id BIGINT DEFAULT nextval('product_seq_id'),
-    cost INTEGER,
+    cost NUMERIC,
     rating TINYINT,
     description VARCHAR(1000),
     name VARCHAR(120),
     manufacturer VARCHAR(50),
     picture VARCHAR(255),
     category TINYINT,
-    CONSTRAINT pk_customers_id PRIMARY KEY (id)
+    CONSTRAINT pk_customer_id PRIMARY KEY (id)
 );
+
+CREATE INDEX idx_product_name ON product (name);
+CREATE INDEX idx_product_manufacturer ON product (manufacturer);
+CREATE INDEX idx_product_category ON product (category);
+CREATE INDEX idx_product_cost ON product (cost);
 
 -- Створюємо таблицю battery
 CREATE TABLE IF NOT EXISTS battery (
@@ -79,3 +84,107 @@ CREATE TABLE IF NOT EXISTS wire_lug (
     material VARCHAR(50),
     FOREIGN KEY (wire_lug_id) REFERENCES product(id)
 );
+
+
+CREATE TABLE IF NOT EXISTS customer (
+    id BIGINT NOT NULL PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    tel_number VARCHAR(255)
+
+    -- Обмеження: Унікальність на рівні таблиці для електронної пошти (додатково, якщо не підтримується на рівні колонки)
+   -- CONSTRAINT uc_customer_email UNIQUE (email)
+);
+CREATE INDEX idx_customer_last_name ON customer (last_name);
+CREATE INDEX idx_customer_tel_number ON customer (tel_number);
+
+
+
+---
+
+CREATE SEQUENCE IF NOT EXISTS seq_order_id
+    INCREMENT BY 1
+    START WITH 1
+    CACHE 1;
+
+CREATE TABLE IF NOT EXISTS orders (
+    id BIGINT PRIMARY KEY NOT NULL,
+    order_date TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    total_price NUMERIC(19, 2), -- 19 цифр загалом, 2 після коми
+    order_status VARCHAR(255) NOT NULL, -- Використовуємо VARCHAR для сумісності з H2, хоча для PostgreSQL можна використати order_status_enum
+    customer_id BIGINT NOT NULL,
+
+    -- Обмеження зовнішнього ключа (Foreign Key)
+    CONSTRAINT fk_order_customer
+        FOREIGN KEY (customer_id)
+        REFERENCES customer(id)
+        ON DELETE RESTRICT
+);
+
+---
+
+-- *** 4. Створення індексу для зовнішнього ключа ***
+CREATE INDEX idx_order_customer_id ON orders (customer_id);
+
+-- *** 1. Створення послідовності (Sequence) ***
+-- Відповідає @SequenceGenerator(name = "customer_seq", sequenceName = "seq_customer_id")
+CREATE SEQUENCE IF NOT EXISTS seq_customer_id
+    INCREMENT BY 1
+    START WITH 1
+    CACHE 1;
+
+-- Цей крок є обов'язковим для PostgreSQL і рекомендований для H2,
+-- щоб відповідати конфігурації @SequenceGenerator
+CREATE SEQUENCE seq_order_items_id
+    INCREMENT BY 1
+    START WITH 1
+    CACHE 1;
+
+---
+
+-- Створення таблиці order_items
+CREATE TABLE order_item (
+    -- ID (Первинний ключ)
+    -- Для PostgreSQL: використовуємо nextval з нашої послідовності
+    -- Для H2: H2 підтримує SEQUENCE
+    id BIGINT PRIMARY KEY,
+
+    -- Кількість товару
+    quantity INTEGER NOT NULL,
+
+    -- Зв'язок ManyToOne з Order
+    -- order_id має посилатися на первинний ключ таблиці "order"
+    -- (припускаючи, що назва таблиці для класу Order - 'order', хоча це зазвичай 'orders')
+    -- Якщо таблиця називається `orders`, змініть `order` на `orders`.
+    order_id BIGINT NOT NULL,
+
+    -- Зв'язок ManyToOne з Product
+    -- product_id має посилатися на первинний ключ таблиці "product"
+    -- (припускаючи, що назва таблиці для класу Product - 'product' або 'products')
+    product_id BIGINT NOT NULL,
+
+    -- Обмеження зовнішнього ключа (Foreign Key) для order_id
+    -- ON DELETE CASCADE або ON DELETE RESTRICT слід обрати відповідно до бізнес-логіки.
+    -- Зазвичай для елементів замовлення використовується RESTRICT або SET NULL,
+    -- щоб не видалити елементи замовлення при випадковому видаленні самого замовлення (або навпаки).
+    -- Приклад:
+    CONSTRAINT fk_order_item_order
+        FOREIGN KEY (order_id)
+        REFERENCES orders(id)
+        ON DELETE CASCADE,
+
+    -- Обмеження зовнішнього ключа (Foreign Key) для product_id
+    CONSTRAINT fk_order_item_product
+        FOREIGN KEY (product_id)
+        REFERENCES product(id)
+        ON DELETE RESTRICT
+);
+
+---
+
+-- Створення індексів для покращення продуктивності пошуку за зовнішніми ключами
+CREATE INDEX idx_order_item_order_id ON order_item (order_id);
+CREATE INDEX idx_order_item_product_id ON order_item (product_id);
+
+

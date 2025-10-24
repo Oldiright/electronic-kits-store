@@ -14,15 +14,15 @@ import lombok.EqualsAndHashCode;
 @PrimaryKeyJoinColumn(name = "BMS_id")
 public class Bms extends Product {
     @Column(name = "max_power")
-    private int maxPower;
+    private Integer maxPower;
     @Column(name = "balancer_type")
     private Balancer balancerType;
     @Column(name = "min_string_supported")
-    private int minStringSupported;
+    private Integer minStringSupported;
     @Column(name = "max_string_supported")
-    private int maxStringSupported;
+    private Integer maxStringSupported;
     @Column(name = "bluetooth_availability")
-    private boolean isBluetooth;
+    private Boolean isBluetooth;
 
     public enum Balancer {
         ACTIVE,

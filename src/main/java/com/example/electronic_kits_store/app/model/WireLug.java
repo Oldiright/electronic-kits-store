@@ -14,9 +14,9 @@ import lombok.EqualsAndHashCode;
 @PrimaryKeyJoinColumn(name = "wire_lug_id")
 public class WireLug extends Product {
     @Column(name = "wire_cross_sectional_area")
-    private int wireCrossSectionArea;
+    private Integer wireCrossSectionArea;
     @Column(name = "terminal_diameter")
-    private int terminalDiameter;
+    private Integer terminalDiameter;
     @Column(name = "material")
     private String material;
 }

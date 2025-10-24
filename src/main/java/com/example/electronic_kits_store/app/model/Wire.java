@@ -16,7 +16,7 @@ public class Wire extends Product {
     @Column(name = "color")
     private String color;
     @Column(name = "cross_sectional_area")
-    private int crossSectionArea;
+    private Integer crossSectionArea;
     @Column(name = "insulation_material")
     private String InsulationMaterial;
 }

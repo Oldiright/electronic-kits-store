@@ -1,7 +1,7 @@
 package com.example.electronic_kits_store.app.controller;
 
 import com.example.electronic_kits_store.app.model.Product;
-import com.example.electronic_kits_store.app.model.projection.ProductProjection;
+import com.example.electronic_kits_store.app.projection.ProductProjection;
 import com.example.electronic_kits_store.app.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,32 +13,37 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/test/products")
 @RequiredArgsConstructor
 public class TestController {
     private final ProductService productService;
 
-    @GetMapping("/all")
-    public Object findAll(@RequestParam(value = "details", defaultValue = "false") boolean details) {
-        if (details) {
-            return productService.findAllWithDetails();
-        }
-        return productService.findAll();
-    }
+//    @GetMapping("/all")
+//    public Object findAll(@RequestParam(value = "details", defaultValue = "false") boolean details) {
+//        if (details) {
+//            return productService.findAllWithDetails();
+//        }
+//        return productService.findAll();
+//    }
 
-    @GetMapping("/manufacturer/{manufacturer}")
-    public List<ProductProjection> findByManufacturer(@PathVariable String manufacturer) {
-        return productService.findByManufacturer(manufacturer);
-    }
+//    @GetMapping("/manufacturer/{manufacturer}")
+//    public List<ProductProjection> findByManufacturer(@PathVariable String manufacturer) {
+//        return productService.findByManufacturer(manufacturer);
+//    }
 
-    @GetMapping("/category/{category}")
-    public List<ProductProjection> findByCategory(@PathVariable String category) {
-        return productService.findByCategory(Product.Category.valueOf(category.toUpperCase()));
-    }
+//    @GetMapping("/category/{category}")
+//    public List<ProductProjection> findByCategory(@PathVariable String category) {
+//        return productService.findByCategory(Product.Category.valueOf(category.toUpperCase()));
+//    }
 
-    @GetMapping("/category/{category}/details")
-    public List<Product> findByCategoryWithDetails(@PathVariable String category) {
-        return productService.findByCategoryWithDetails(category);
+//    @GetMapping("/category/{category}/details")
+//    public List<Product> findByCategoryWithDetails(@PathVariable String category) {
+//        return productService.findByCategoryWithDetails(category);
 
-    }
+//    }
+//    @GetMapping("/{id}")
+//    public ProductProjection findById(@PathVariable int id) {
+//        return productService.findById(id);
+//
+//    }
 }

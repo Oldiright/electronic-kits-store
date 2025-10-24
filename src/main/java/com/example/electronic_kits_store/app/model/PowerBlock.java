@@ -14,9 +14,9 @@ import lombok.EqualsAndHashCode;
 @PrimaryKeyJoinColumn(name = "powerBlock_id")
 public class PowerBlock extends Product {
     @Column(name = "min_voltage")
-    private int minVoltage;
+    private Integer minVoltage;
     @Column(name = "max_voltage")
-    private int maxVoltage;
+    private Integer maxVoltage;
     @Column(name = "power")
-    private int power;
+    private Integer power;
 }

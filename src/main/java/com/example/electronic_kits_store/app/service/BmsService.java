@@ -1,7 +1,7 @@
 package com.example.electronic_kits_store.app.service;
 
-import com.example.electronic_kits_store.app.dto.BmsDTO;
-import com.example.electronic_kits_store.app.dto.CreateBmsRequest;
+import com.example.electronic_kits_store.app.dto.bms.BmsDTO;
+import com.example.electronic_kits_store.app.dto.bms.CreateBmsRequest;
 import com.example.electronic_kits_store.app.mapper.BmsMapper;
 import com.example.electronic_kits_store.app.repository.BmsRepository;
 import lombok.RequiredArgsConstructor;

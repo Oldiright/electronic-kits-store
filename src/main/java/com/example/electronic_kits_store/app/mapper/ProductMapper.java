@@ -1,5 +1,5 @@
 package com.example.electronic_kits_store.app.mapper;
-import com.example.electronic_kits_store.app.dto.ProductDTO;
+import com.example.electronic_kits_store.app.dto.product.ProductDTO;
 import com.example.electronic_kits_store.app.projection.ProductProjection;
 import org.mapstruct.Mapper;
 

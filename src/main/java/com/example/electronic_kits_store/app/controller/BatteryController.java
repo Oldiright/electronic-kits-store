@@ -1,7 +1,7 @@
 package com.example.electronic_kits_store.app.controller;
 
-import com.example.electronic_kits_store.app.dto.BatteryDTO;
-import com.example.electronic_kits_store.app.dto.CreateBatteryRequest;
+import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
+import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.service.BatteryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

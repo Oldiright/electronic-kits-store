@@ -1,6 +1,6 @@
 package com.example.electronic_kits_store.app.service;
 
-import com.example.electronic_kits_store.app.dto.ProductDTO;
+import com.example.electronic_kits_store.app.dto.product.ProductDTO;
 import com.example.electronic_kits_store.app.projection.ProductProjection;
 import com.example.electronic_kits_store.app.repository.ProductRepository;
 import org.junit.jupiter.api.Test;

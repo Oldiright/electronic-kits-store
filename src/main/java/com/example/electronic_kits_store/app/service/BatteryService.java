@@ -1,7 +1,7 @@
 package com.example.electronic_kits_store.app.service;
 
-import com.example.electronic_kits_store.app.dto.BatteryDTO;
-import com.example.electronic_kits_store.app.dto.CreateBatteryRequest;
+import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
+import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.mapper.BatteryMapper;
 import com.example.electronic_kits_store.app.repository.BatteryRepository;
 import lombok.RequiredArgsConstructor;

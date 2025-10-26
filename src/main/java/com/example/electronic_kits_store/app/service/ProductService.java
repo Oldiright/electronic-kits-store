@@ -1,9 +1,8 @@
 package com.example.electronic_kits_store.app.service;
 
 
-import com.example.electronic_kits_store.app.dto.ProductDTO;
+import com.example.electronic_kits_store.app.dto.product.ProductDTO;
 import com.example.electronic_kits_store.app.mapper.ProductMapper;
-import com.example.electronic_kits_store.app.model.Product;
 import com.example.electronic_kits_store.app.projection.ProductProjection;
 import com.example.electronic_kits_store.app.repository.BatteryRepository;
 import com.example.electronic_kits_store.app.repository.BmsRepository;
@@ -17,7 +16,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

@@ -1,4 +1,4 @@
-package com.example.electronic_kits_store.app.dto;
+package com.example.electronic_kits_store.app.dto.bms;
 
 import com.example.electronic_kits_store.app.model.Bms;
 import com.example.electronic_kits_store.app.model.Product;

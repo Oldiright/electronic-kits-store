@@ -1,11 +1,9 @@
 package com.example.electronic_kits_store.app.mapper;
 
-import com.example.electronic_kits_store.app.dto.BatteryDTO;
-import com.example.electronic_kits_store.app.dto.CreateBatteryRequest;
+import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
+import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.model.Battery;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 
 
 @Mapper(componentModel = "spring")

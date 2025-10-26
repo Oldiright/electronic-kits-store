@@ -1,6 +1,6 @@
 package com.example.electronic_kits_store.app.controller;
-import com.example.electronic_kits_store.app.dto.BmsDTO;
-import com.example.electronic_kits_store.app.dto.CreateBmsRequest;
+import com.example.electronic_kits_store.app.dto.bms.BmsDTO;
+import com.example.electronic_kits_store.app.dto.bms.CreateBmsRequest;
 import com.example.electronic_kits_store.app.service.BmsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package com.example.electronic_kits_store.app.controller;
 
-import com.example.electronic_kits_store.app.dto.ProductDTO;
+import com.example.electronic_kits_store.app.dto.product.ProductDTO;
 import com.example.electronic_kits_store.app.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

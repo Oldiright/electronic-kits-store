@@ -6,7 +6,6 @@ import com.example.electronic_kits_store.app.model.Bms;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface BmsMapper {
-    BmsDTO toDto(Bms bms);
-    Bms toEntity(CreateBmsRequest createBmsRequest);
+public interface BmsMapper extends AbstractMapper<Bms, BmsDTO, CreateBmsRequest>{
+
 }

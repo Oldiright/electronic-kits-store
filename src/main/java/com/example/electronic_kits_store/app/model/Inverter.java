@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "inverter")
 public class Inverter extends Product {
     @Column(name = "power")
-    private int power;
+    private Integer power;
     @Column(name = "input_voltage")
     private InputVoltage inputVoltage;
 

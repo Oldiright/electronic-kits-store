@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 
 
 @Mapper(componentModel = "spring")
-public interface BatteryMapper {
+public interface BatteryMapper extends AbstractMapper<Battery, BatteryDTO, CreateBatteryRequest> {
 
 //    @Mappings({
 //            @Mapping(target = "id", source = "id"),
@@ -23,12 +23,12 @@ public interface BatteryMapper {
 //            @Mapping(target = "form", source = "form"),
 //            @Mapping(target = "batteryTerminalDiameter", source = "batteryTerminalDiameter")
 //    })
-    BatteryDTO toDto(Battery battery);
+//    BatteryDTO toDto(Battery battery);
 
     // pictureUrl не встановлюємо при створенні
 //    @Mappings({
 //            @Mapping(target = "id", ignore = true),
 //            @Mapping(target = "pictureUrl", ignore = true)
 //    })
-    Battery toEntity(CreateBatteryRequest request);
+//    Battery toEntity(CreateBatteryRequest request);
 }

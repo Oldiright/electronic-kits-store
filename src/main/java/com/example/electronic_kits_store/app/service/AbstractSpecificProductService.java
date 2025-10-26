@@ -2,7 +2,6 @@ package com.example.electronic_kits_store.app.service;
 
 import com.example.electronic_kits_store.app.mapper.AbstractMapper;
 import lombok.RequiredArgsConstructor;
-import org.mapstruct.Mapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

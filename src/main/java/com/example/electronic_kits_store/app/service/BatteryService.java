@@ -7,7 +7,7 @@ import com.example.electronic_kits_store.app.model.Battery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 
 @Service
 public class BatteryService extends AbstractSpecificProductService<Battery, BatteryDTO, CreateBatteryRequest> {

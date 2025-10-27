@@ -10,7 +10,7 @@ public record CreateBatteryRequest (
         BigDecimal cost,
         String manufacturer,
         String description,
-        Integer rating,
+        Byte rating,
         Product.Category category,
         Integer nominalVoltage,
         Integer capacity,

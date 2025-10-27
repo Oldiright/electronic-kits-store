@@ -11,7 +11,6 @@ public record CreateBmsRequest (
         String manufacturer,
         String description,
         Byte rating,
-        String pictureUrl,
         Product.Category category,
         Integer maxPower,
         Bms.Balancer balancerType,

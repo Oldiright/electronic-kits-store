@@ -14,6 +14,8 @@ import com.example.electronic_kits_store.app.repository.WireLugRepository;
 import com.example.electronic_kits_store.app.repository.WireRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,8 +39,9 @@ public class ProductService {
         ProductProjection product = productRepository.findProjectedById(id);
         return productMapper.toDto(product);
     }
-    public List<ProductDTO> findAll() {
-        return productRepository.findAllProjectedBy().stream().map(productMapper::toDto).toList();
+    public Page<ProductDTO> findAll(Pageable pageable) {
+        Page<ProductProjection> productProjections = productRepository.findAllProjectedBy(pageable);
+        return productProjections.map(productMapper::toDto);
     }
 
     public void delete(long id) {

@@ -2,6 +2,8 @@ package com.example.electronic_kits_store.app.service;
 
 import com.example.electronic_kits_store.app.mapper.AbstractMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -18,7 +20,7 @@ public class AbstractSpecificProductService<E, D, R> {
         return mapper.toDto(repository.findById(id).orElseThrow());
     }
 
-    public List<D> findAll() {
-        return repository.findAll().stream().map(mapper::toDto).toList();
+    public Page<D> findAll(Pageable pageable) {
+        return repository.findAll(pageable).map(mapper::toDto);
     }
 }

@@ -48,6 +48,8 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
+    //todo upload product's image(s)
+
 
     //    public Product createWithBenefits(Map<String, String> productProperties, String category) throws ClassNotFoundException, JsonProcessingException {
 //

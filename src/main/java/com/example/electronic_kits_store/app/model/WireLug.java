@@ -13,6 +13,9 @@ import lombok.EqualsAndHashCode;
 @Table(name = "wire_lug")
 @PrimaryKeyJoinColumn(name = "wire_lug_id")
 public class WireLug extends Product {
+    public WireLug() {
+        super.setCategory(Category.WIRE_LUG);
+    }
     @Column(name = "wire_cross_sectional_area")
     private Integer wireCrossSectionArea;
     @Column(name = "terminal_diameter")

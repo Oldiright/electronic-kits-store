@@ -4,10 +4,9 @@ import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
 import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.model.Battery;
 import com.example.electronic_kits_store.app.model.Product;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BatteryMapperTest {
 
@@ -31,24 +30,19 @@ public class BatteryMapperTest {
         BatteryDTO batteryDTO = batteryMapper.toDto(battery);
 
         //then
-        Assertions.assertNotNull(batteryDTO);
-        Assertions.assertEquals(battery.getId(), batteryDTO.id());
-        Assertions.assertEquals(battery.getName(), batteryDTO.name());
-        Assertions.assertEquals(battery.getCost(), batteryDTO.cost());
-        Assertions.assertEquals(battery.getManufacturer(), batteryDTO.manufacturer());
-        Assertions.assertEquals(battery.getDescription(), batteryDTO.description());
-        Assertions.assertEquals(battery.getRating(), batteryDTO.rating());
-        Assertions.assertEquals(battery.getPictureUrl(), batteryDTO.pictureUrl());
-        Assertions.assertEquals(battery.getCategory().toString(), batteryDTO.category());
-        Assertions.assertEquals(battery.getNominalVoltage(), batteryDTO.nominalVoltage());
-        Assertions.assertEquals(battery.getCapacity(), batteryDTO.capacity());
-        Assertions.assertEquals(battery.getForm().toString(), batteryDTO.form());
-        Assertions.assertEquals(battery.getBatteryTerminalDiameter(), batteryDTO.batteryTerminalDiameter());
-
-
-
-
-
+        assertNotNull(batteryDTO);
+        assertEquals(battery.getId(), batteryDTO.id());
+        assertEquals(battery.getName(), batteryDTO.name());
+        assertEquals(battery.getCost(), batteryDTO.cost());
+        assertEquals(battery.getManufacturer(), batteryDTO.manufacturer());
+        assertEquals(battery.getDescription(), batteryDTO.description());
+        assertEquals(battery.getRating(), batteryDTO.rating());
+        assertEquals(battery.getPictureUrl(), batteryDTO.pictureUrl());
+        assertEquals(battery.getCategory().toString(), batteryDTO.category());
+        assertEquals(battery.getNominalVoltage(), batteryDTO.nominalVoltage());
+        assertEquals(battery.getCapacity(), batteryDTO.capacity());
+        assertEquals(battery.getForm().toString(), batteryDTO.form());
+        assertEquals(battery.getBatteryTerminalDiameter(), batteryDTO.batteryTerminalDiameter());
     }
     @Test
     void shouldProperlyMapCreateBatteryRequestToEntity() {
@@ -68,23 +62,18 @@ public class BatteryMapperTest {
         Battery battery = batteryMapper.toEntity(createBatteryRequest);
 
         //then
-        Assertions.assertNotNull(battery);
-        Assertions.assertNull(battery.getId());
-        Assertions.assertNull(battery.getPictureUrl());
-        Assertions.assertEquals(battery.getName(), createBatteryRequest.name());
-        Assertions.assertEquals(battery.getCost(), createBatteryRequest.cost());
-        Assertions.assertEquals(battery.getManufacturer(), createBatteryRequest.manufacturer());
-        Assertions.assertEquals(battery.getDescription(), createBatteryRequest.description());
-        Assertions.assertEquals(battery.getRating(), createBatteryRequest.rating());
-        Assertions.assertEquals(battery.getCategory(), Product.Category.BATTERY);
-        Assertions.assertEquals(battery.getNominalVoltage(), createBatteryRequest.nominalVoltage());
-        Assertions.assertEquals(battery.getCapacity(), createBatteryRequest.capacity());
-        Assertions.assertEquals(battery.getForm().toString(), createBatteryRequest.form());
-        Assertions.assertEquals(battery.getBatteryTerminalDiameter(), createBatteryRequest.batteryTerminalDiameter());
-
-
-
-
-
+        assertNotNull(battery);
+        assertNull(battery.getId());
+        assertNull(battery.getPictureUrl());
+        assertEquals(createBatteryRequest.name(), battery.getName());
+        assertEquals(createBatteryRequest.cost(),battery.getCost());
+        assertEquals(createBatteryRequest.manufacturer(), battery.getManufacturer());
+        assertEquals(createBatteryRequest.description(), battery.getDescription());
+        assertEquals(createBatteryRequest.rating(), battery.getRating());
+        assertEquals(Product.Category.BATTERY, battery.getCategory());
+        assertEquals(createBatteryRequest.nominalVoltage(), battery.getNominalVoltage());
+        assertEquals(createBatteryRequest.capacity(), battery.getCapacity());
+        assertEquals(createBatteryRequest.form(), battery.getForm().toString());
+        assertEquals(createBatteryRequest.batteryTerminalDiameter(), battery.getBatteryTerminalDiameter());
     }
 }

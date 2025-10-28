@@ -1,11 +1,8 @@
-package com.example.electronic_kits_store.app.dto.Miscellaneous;
-
-import com.example.electronic_kits_store.app.model.Product;
+package com.example.electronic_kits_store.app.dto.wirelug;
 
 import java.math.BigDecimal;
-import java.util.Map;
 
-public record MiscellaneousDTO (
+public record WireLugDTO(
         Long id,
         String name,
         BigDecimal cost,
@@ -14,6 +11,9 @@ public record MiscellaneousDTO (
         Byte rating,
         String pictureUrl,
         String category,
-        Map<String, String> otherInfo
-){
+        Integer wireCrossSectionArea,
+        Integer terminalDiameter,
+        String material
+) {
+
 }

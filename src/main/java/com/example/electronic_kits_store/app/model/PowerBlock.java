@@ -13,6 +13,9 @@ import lombok.EqualsAndHashCode;
 @Table(name = "Power_block")
 @PrimaryKeyJoinColumn(name = "powerBlock_id")
 public class PowerBlock extends Product {
+    public PowerBlock() {
+        super.setCategory(Category.POWER_BLOCK);
+    }
     @Column(name = "min_voltage")
     private Integer minVoltage;
     @Column(name = "max_voltage")

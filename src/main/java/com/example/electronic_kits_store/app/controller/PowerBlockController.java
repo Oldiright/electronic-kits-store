@@ -1,7 +1,7 @@
 package com.example.electronic_kits_store.app.controller;
 
-import com.example.electronic_kits_store.app.dto.powerBlock.CreatePowerBlockRequest;
-import com.example.electronic_kits_store.app.dto.powerBlock.PowerBlockDTO;
+import com.example.electronic_kits_store.app.dto.powerblock.CreatePowerBlockRequest;
+import com.example.electronic_kits_store.app.dto.powerblock.PowerBlockDTO;
 import com.example.electronic_kits_store.app.service.PowerBlockService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

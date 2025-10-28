@@ -1,8 +1,8 @@
-package com.example.electronic_kits_store.app.dto.powerBlock;
+package com.example.electronic_kits_store.app.dto.wire;
 
 import java.math.BigDecimal;
 
-public record PowerBlockDTO(
+public record WireDTO(
         Long id,
         String name,
         BigDecimal cost,
@@ -11,8 +11,7 @@ public record PowerBlockDTO(
         Byte rating,
         String pictureUrl,
         String category,
-        Integer minVoltage,
-        Integer maxVoltage,
-        Integer power
-) {
-}
+        String color,
+        Integer crossSectionArea,
+        String insulationMaterial
+) {}

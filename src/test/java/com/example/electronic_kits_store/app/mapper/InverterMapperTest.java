@@ -3,10 +3,11 @@ import com.example.electronic_kits_store.app.dto.inverter.CreateInverterRequest;
 import com.example.electronic_kits_store.app.dto.inverter.InverterDTO;
 import com.example.electronic_kits_store.app.model.Inverter;
 import com.example.electronic_kits_store.app.model.Product;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class InverterMapperTest {
     private final InverterMapper inverterMapper= new InverterMapperImpl();
@@ -28,22 +29,17 @@ public class InverterMapperTest {
         InverterDTO inverterDTO = inverterMapper.toDto(inverter);
 
         //then
-        Assertions.assertNotNull(inverterDTO);
-        Assertions.assertEquals(inverter.getId(), inverterDTO.id());
-        Assertions.assertEquals(inverter.getName(), inverterDTO.name());
-        Assertions.assertEquals(inverter.getCost(), inverterDTO.cost());
-        Assertions.assertEquals(inverter.getManufacturer(), inverterDTO.manufacturer());
-        Assertions.assertEquals(inverter.getDescription(), inverterDTO.description());
-        Assertions.assertEquals(inverter.getRating(), inverterDTO.rating());
-        Assertions.assertEquals(inverter.getPictureUrl(), inverterDTO.pictureUrl());
-        Assertions.assertEquals(inverter.getCategory().toString(), inverterDTO.category());
-        Assertions.assertEquals(inverter.getPower(), inverterDTO.power());
-        System.out.println(inverter.getInputVoltage().toString());
-        Assertions.assertEquals(inverter.getInputVoltage().toString(), inverterDTO.inputVoltage());
-
-
-
-
+        assertNotNull(inverterDTO);
+        assertEquals(inverter.getId(), inverterDTO.id());
+        assertEquals(inverter.getName(), inverterDTO.name());
+        assertEquals(inverter.getCost(), inverterDTO.cost());
+        assertEquals(inverter.getManufacturer(), inverterDTO.manufacturer());
+        assertEquals(inverter.getDescription(), inverterDTO.description());
+        assertEquals(inverter.getRating(), inverterDTO.rating());
+        assertEquals(inverter.getPictureUrl(), inverterDTO.pictureUrl());
+        assertEquals(inverter.getCategory().toString(), inverterDTO.category());
+        assertEquals(inverter.getPower(), inverterDTO.power());
+        assertEquals(inverter.getInputVoltage().toString(), inverterDTO.inputVoltage());
     }
     @Test
     void shouldProperlyMapCreateInverterRequestToEntity() {
@@ -61,16 +57,16 @@ public class InverterMapperTest {
         Inverter inverter = inverterMapper.toEntity(createInverterRequest);
 
         //then
-        Assertions.assertNotNull(inverter);
-        Assertions.assertNull(inverter.getId());
-        Assertions.assertNull(inverter.getPictureUrl());
-        Assertions.assertEquals(inverter.getName(), createInverterRequest.name());
-        Assertions.assertEquals(inverter.getCost(), createInverterRequest.cost());
-        Assertions.assertEquals(inverter.getManufacturer(), createInverterRequest.manufacturer());
-        Assertions.assertEquals(inverter.getDescription(), createInverterRequest.description());
-        Assertions.assertEquals(inverter.getRating(), createInverterRequest.rating());
-        Assertions.assertEquals(inverter.getCategory(), Product.Category.INVERTER);
-        Assertions.assertEquals(inverter.getPower(), createInverterRequest.power());
-        Assertions.assertEquals(inverter.getInputVoltage().toString(), createInverterRequest.inputVoltage());
+        assertNotNull(inverter);
+        assertNull(inverter.getId());
+        assertNull(inverter.getPictureUrl());
+        assertEquals(createInverterRequest.name(), inverter.getName());
+        assertEquals(createInverterRequest.cost(), inverter.getCost());
+        assertEquals(createInverterRequest.manufacturer(), inverter.getManufacturer());
+        assertEquals(createInverterRequest.description(), inverter.getDescription());
+        assertEquals(createInverterRequest.rating(), inverter.getRating());
+        assertEquals(Product.Category.INVERTER, inverter.getCategory());
+        assertEquals(createInverterRequest.power(), inverter.getPower());
+        assertEquals(createInverterRequest.inputVoltage(), inverter.getInputVoltage().toString());
     }
 }

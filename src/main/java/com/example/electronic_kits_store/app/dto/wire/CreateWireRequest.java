@@ -1,6 +1,5 @@
-package com.example.electronic_kits_store.app.dto.Miscellaneous;
+package com.example.electronic_kits_store.app.dto.wire;
 
-import com.example.electronic_kits_store.app.model.Product;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -9,9 +8,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
-import java.util.Map;
 
-public record CreateMiscellaneousRequest (
+public record CreateWireRequest(
         @NotBlank(message = "Назва не може бути порожньою")
         String name,
         @NotNull(message = "Вартість має бути вказана")
@@ -23,5 +21,10 @@ public record CreateMiscellaneousRequest (
         String description,
         @Min(value = 0) @Max(value = 5)
         Byte rating,
-        Map<String, String> otherInfo
+        @NotBlank
+        String color,
+        @NotNull
+        Integer crossSectionArea,
+        @NotBlank
+        String insulationMaterial
 ) {}

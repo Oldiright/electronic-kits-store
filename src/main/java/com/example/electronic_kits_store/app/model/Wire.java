@@ -13,10 +13,13 @@ import lombok.EqualsAndHashCode;
 @Table(name = "wire")
 @PrimaryKeyJoinColumn(name = "wire_id")
 public class Wire extends Product {
+    public Wire() {
+        super.setCategory(Category.WIRE);
+    }
     @Column(name = "color")
     private String color;
     @Column(name = "cross_sectional_area")
     private Integer crossSectionArea;
     @Column(name = "insulation_material")
-    private String InsulationMaterial;
+    private String insulationMaterial;
 }

@@ -1,16 +1,16 @@
-package com.example.electronic_kits_store.app.dto.powerBlock;
-
-import com.example.electronic_kits_store.app.model.Product;
+package com.example.electronic_kits_store.app.dto.powerblock;
 
 import java.math.BigDecimal;
 
-public record CreatePowerBlockRequest(
+public record PowerBlockDTO(
+        Long id,
         String name,
         BigDecimal cost,
         String manufacturer,
         String description,
         Byte rating,
-        Product.Category category,
+        String pictureUrl,
+        String category,
         Integer minVoltage,
         Integer maxVoltage,
         Integer power

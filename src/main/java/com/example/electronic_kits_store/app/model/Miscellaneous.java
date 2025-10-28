@@ -16,6 +16,9 @@ import java.util.Map;
 @Table(name = "miscellaneous")
 @PrimaryKeyJoinColumn(name = "miscellaneous_id")
 public class Miscellaneous extends Product{
+    public Miscellaneous() {
+        super.setCategory(Category.OTHER);
+    }
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "otherInfo", columnDefinition = "json")
     private Map<String, String> otherInfo = new HashMap<>();

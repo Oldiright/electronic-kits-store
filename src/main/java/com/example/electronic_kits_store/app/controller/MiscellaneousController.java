@@ -3,6 +3,7 @@ package com.example.electronic_kits_store.app.controller;
 import com.example.electronic_kits_store.app.dto.Miscellaneous.CreateMiscellaneousRequest;
 import com.example.electronic_kits_store.app.dto.Miscellaneous.MiscellaneousDTO;
 import com.example.electronic_kits_store.app.service.MiscellaneousService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,7 +34,7 @@ public class MiscellaneousController {
         return ResponseEntity.ok(miscellaneousService.findAll(pageable));
     }
     @PostMapping("/create")
-    public ResponseEntity<MiscellaneousDTO> create(@RequestBody CreateMiscellaneousRequest createMiscellaneousRequest) {
+    public ResponseEntity<MiscellaneousDTO> create(@Valid @RequestBody CreateMiscellaneousRequest createMiscellaneousRequest) {
         return ResponseEntity.status(201).body(miscellaneousService.create(createMiscellaneousRequest));
     }
 }

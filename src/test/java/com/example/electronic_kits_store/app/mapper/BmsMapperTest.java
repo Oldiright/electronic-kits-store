@@ -4,9 +4,9 @@ import com.example.electronic_kits_store.app.dto.bms.BmsDTO;
 import com.example.electronic_kits_store.app.dto.bms.CreateBmsRequest;
 import com.example.electronic_kits_store.app.model.Bms;
 import com.example.electronic_kits_store.app.model.Product;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BmsMapperTest {
     private final BmsMapper bmsMapper = new BmsMapperImpl();
@@ -27,25 +27,24 @@ public class BmsMapperTest {
         bms.setMaxStringSupported(12);
         bms.setIsBluetooth(true);
 
-
         //when
         BmsDTO bmsDTO = bmsMapper.toDto(bms);
 
         //then
-        Assertions.assertNotNull(bmsDTO);
-        Assertions.assertEquals(bms.getId(), bmsDTO.id());
-        Assertions.assertEquals(bms.getName(), bmsDTO.name());
-        Assertions.assertEquals(bms.getCost(), bmsDTO.cost());
-        Assertions.assertEquals(bms.getManufacturer(), bmsDTO.manufacturer());
-        Assertions.assertEquals(bms.getDescription(), bmsDTO.description());
-        Assertions.assertEquals(bms.getRating(), bmsDTO.rating());
-        Assertions.assertEquals(bms.getPictureUrl(), bmsDTO.pictureUrl());
-        Assertions.assertEquals(bms.getCategory().toString(), bmsDTO.category());
-        Assertions.assertEquals(bms.getMaxPower(), bmsDTO.maxPower());
-        Assertions.assertEquals(bms.getBalancerType().toString(), bmsDTO.balancerType());
-        Assertions.assertEquals(bms.getMinStringSupported(), bmsDTO.minStringSupported());
-        Assertions.assertEquals(bms.getMaxStringSupported(), bmsDTO.maxStringSupported());
-        Assertions.assertEquals(bms.getIsBluetooth(), bmsDTO.isBluetooth());
+        assertNotNull(bmsDTO);
+        assertEquals(bms.getId(), bmsDTO.id());
+        assertEquals(bms.getName(), bmsDTO.name());
+        assertEquals(bms.getCost(), bmsDTO.cost());
+        assertEquals(bms.getManufacturer(), bmsDTO.manufacturer());
+        assertEquals(bms.getDescription(), bmsDTO.description());
+        assertEquals(bms.getRating(), bmsDTO.rating());
+        assertEquals(bms.getPictureUrl(), bmsDTO.pictureUrl());
+        assertEquals(bms.getCategory().toString(), bmsDTO.category());
+        assertEquals(bms.getMaxPower(), bmsDTO.maxPower());
+        assertEquals(bms.getBalancerType().toString(), bmsDTO.balancerType());
+        assertEquals(bms.getMinStringSupported(), bmsDTO.minStringSupported());
+        assertEquals(bms.getMaxStringSupported(), bmsDTO.maxStringSupported());
+        assertEquals(bms.getIsBluetooth(), bmsDTO.isBluetooth());
     }
     @Test
     void shouldProperlyMapCreateBmsRequestToEntity() {
@@ -61,27 +60,25 @@ public class BmsMapperTest {
                 2,
                 12,
                 true
-
         );
-
 
         //when
         Bms bms = bmsMapper.toEntity(createBmsRequest);
 
         //then
-        Assertions.assertNotNull(bms);
-        Assertions.assertNull(bms.getId());
-        Assertions.assertNull(bms.getPictureUrl());
-        Assertions.assertEquals(bms.getName(), createBmsRequest.name());
-        Assertions.assertEquals(bms.getCost(), createBmsRequest.cost());
-        Assertions.assertEquals(bms.getManufacturer(), createBmsRequest.manufacturer());
-        Assertions.assertEquals(bms.getDescription(), createBmsRequest.description());
-        Assertions.assertEquals(bms.getRating(), createBmsRequest.rating());
-        Assertions.assertEquals(bms.getCategory(), Product.Category.BMS);
-        Assertions.assertEquals(bms.getMaxPower(), createBmsRequest.maxPower());
-        Assertions.assertEquals(bms.getBalancerType().toString(), createBmsRequest.balancerType());
-        Assertions.assertEquals(bms.getMinStringSupported(), createBmsRequest.minStringSupported());
-        Assertions.assertEquals(bms.getMaxStringSupported(), createBmsRequest.maxStringSupported());
-        Assertions.assertEquals(bms.getIsBluetooth(), createBmsRequest.isBluetooth());
+        assertNotNull(bms);
+        assertNull(bms.getId());
+        assertNull(bms.getPictureUrl());
+        assertEquals(createBmsRequest.name(), bms.getName());
+        assertEquals(createBmsRequest.cost(), bms.getCost());
+        assertEquals(createBmsRequest.manufacturer(),bms.getManufacturer());
+        assertEquals(createBmsRequest.description(), bms.getDescription());
+        assertEquals(createBmsRequest.rating(), bms.getRating());
+        assertEquals(Product.Category.BMS, bms.getCategory());
+        assertEquals(createBmsRequest.maxPower(), bms.getMaxPower());
+        assertEquals(createBmsRequest.balancerType(), bms.getBalancerType().toString());
+        assertEquals(createBmsRequest.minStringSupported(), bms.getMinStringSupported());
+        assertEquals(createBmsRequest.maxStringSupported(), bms.getMaxStringSupported());
+        assertEquals(createBmsRequest.isBluetooth(), bms.getIsBluetooth());
     }
 }

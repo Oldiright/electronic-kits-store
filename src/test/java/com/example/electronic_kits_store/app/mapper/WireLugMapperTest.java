@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WireLugMapperTest {
-    private WireLugMapper wireLugMapper = new WireLugMapperImpl();
+    private final WireLugMapper wireLugMapper = new WireLugMapperImpl();
 
     @Test
     void shouldProperlyMapEntityToDto() {

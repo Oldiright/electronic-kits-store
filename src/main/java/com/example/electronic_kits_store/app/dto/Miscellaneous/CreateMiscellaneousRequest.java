@@ -1,6 +1,5 @@
 package com.example.electronic_kits_store.app.dto.Miscellaneous;
 
-import com.example.electronic_kits_store.app.model.Product;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

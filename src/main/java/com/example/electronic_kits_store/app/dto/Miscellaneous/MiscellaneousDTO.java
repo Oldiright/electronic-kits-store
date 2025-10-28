@@ -1,6 +1,5 @@
 package com.example.electronic_kits_store.app.dto.Miscellaneous;
 
-import com.example.electronic_kits_store.app.model.Product;
 
 import java.math.BigDecimal;
 import java.util.Map;

@@ -1,8 +1,8 @@
-package com.example.electronic_kits_store.app.dto.battery;
+package com.example.electronic_kits_store.app.dto.powerBlock;
 
 import java.math.BigDecimal;
 
-public record BatteryDTO(
+public record PowerBlockDTO(
         Long id,
         String name,
         BigDecimal cost,
@@ -11,8 +11,8 @@ public record BatteryDTO(
         Byte rating,
         String pictureUrl,
         String category,
-        Integer nominalVoltage,
-        Integer capacity,
-        String form,
-        Integer batteryTerminalDiameter
-) { }
+        Integer minVoltage,
+        Integer maxVoltage,
+        Integer power
+) {
+}

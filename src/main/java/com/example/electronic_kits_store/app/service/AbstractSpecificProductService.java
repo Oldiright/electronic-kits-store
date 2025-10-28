@@ -1,6 +1,7 @@
 package com.example.electronic_kits_store.app.service;
 
 import com.example.electronic_kits_store.app.mapper.AbstractMapper;
+import com.example.electronic_kits_store.app.model.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 @RequiredArgsConstructor
-public class AbstractSpecificProductService<E, D, R> {
+public class AbstractSpecificProductService<E extends Product, D, R> {
     private final JpaRepository<E, Long> repository;
     private final AbstractMapper<E, D, R> mapper;
     public D create(R createRequest) {

@@ -1,5 +1,4 @@
 package com.example.electronic_kits_store.app.model;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -13,6 +12,9 @@ import lombok.EqualsAndHashCode;
 @Table(name = "BMS")
 @PrimaryKeyJoinColumn(name = "BMS_id")
 public class Bms extends Product {
+    public Bms() {
+        super.setCategory(Category.BMS);
+    }
     @Column(name = "max_power")
     private Integer maxPower;
     @Column(name = "balancer_type")

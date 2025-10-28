@@ -13,14 +13,17 @@ import lombok.EqualsAndHashCode;
 @Table(name = "battery")
 @PrimaryKeyJoinColumn(name = "battery_id")
 public class Battery extends Product {
+    public Battery() {
+        super.setCategory(Category.BATTERY);
+    }
     @Column(name = "nominal_voltage")
-    private int nominalVoltage;
+    private Integer nominalVoltage;
     @Column(name = "capacity")
-    private int capacity;
+    private Integer capacity;
     @Column(name = "form")
     private FormFactor form;
     @Column(name = "battery_terminal_diameter")
-    private int batteryTerminalDiameter;
+    private Integer batteryTerminalDiameter;
 
     public enum FormFactor {
         PRISMATIC,

@@ -1,7 +1,5 @@
 package com.example.electronic_kits_store.app.dto.bms;
 
-import com.example.electronic_kits_store.app.model.Bms;
-import com.example.electronic_kits_store.app.model.Product;
 
 import java.math.BigDecimal;
 
@@ -13,9 +11,9 @@ public record BmsDTO (
         String description,
         Byte rating,
         String pictureUrl,
-        Product.Category category,
+        String category,
         Integer maxPower,
-        Bms.Balancer balancerType,
+        String balancerType,
         Integer minStringSupported,
         Integer maxStringSupported,
         Boolean isBluetooth

@@ -50,4 +50,8 @@ public abstract class Product {
         WIRE_LUG,
         OTHER
     }
+
+    protected void setCategory(Category category) {
+        this.category = category;
+    }
 }

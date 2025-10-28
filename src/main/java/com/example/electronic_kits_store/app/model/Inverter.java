@@ -13,6 +13,7 @@ import lombok.EqualsAndHashCode;
 @PrimaryKeyJoinColumn(name = "inverter_id")
 @Table(name = "inverter")
 public class Inverter extends Product {
+    public Inverter() {super.setCategory(Category.INVERTER);}
     @Column(name = "power")
     private Integer power;
     @Column(name = "input_voltage")

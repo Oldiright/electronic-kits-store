@@ -1,8 +1,5 @@
 package com.example.electronic_kits_store.app.dto.inverter;
 
-import com.example.electronic_kits_store.app.model.Inverter;
-import com.example.electronic_kits_store.app.model.Product;
-
 import java.math.BigDecimal;
 
 public record InverterDTO (
@@ -13,8 +10,8 @@ public record InverterDTO (
         String description,
         Byte rating,
         String pictureUrl,
-        Product.Category category,
+        String category,
         Integer power,
-        Inverter.InputVoltage inputVoltage
+        String inputVoltage
 ){
 }

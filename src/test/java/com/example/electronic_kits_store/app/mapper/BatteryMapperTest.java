@@ -23,7 +23,6 @@ public class BatteryMapperTest {
         battery.setDescription("high performance lion battery 12 V");
         battery.setRating((byte) 3);
         battery.setPictureUrl("/111200.jpg");
-        battery.setCategory(Product.Category.BATTERY);
         battery.setNominalVoltage(12);
         battery.setCapacity(3000);
         battery.setForm(Battery.FormFactor.PRISMATIC);
@@ -40,10 +39,10 @@ public class BatteryMapperTest {
         Assertions.assertEquals(battery.getDescription(), batteryDTO.description());
         Assertions.assertEquals(battery.getRating(), batteryDTO.rating());
         Assertions.assertEquals(battery.getPictureUrl(), batteryDTO.pictureUrl());
-        Assertions.assertEquals(battery.getCategory(), batteryDTO.category());
+        Assertions.assertEquals(battery.getCategory().toString(), batteryDTO.category());
         Assertions.assertEquals(battery.getNominalVoltage(), batteryDTO.nominalVoltage());
         Assertions.assertEquals(battery.getCapacity(), batteryDTO.capacity());
-        Assertions.assertEquals(battery.getForm(), batteryDTO.form());
+        Assertions.assertEquals(battery.getForm().toString(), batteryDTO.form());
         Assertions.assertEquals(battery.getBatteryTerminalDiameter(), batteryDTO.batteryTerminalDiameter());
 
 
@@ -60,10 +59,9 @@ public class BatteryMapperTest {
                 "China",
                 "high performance lion battery 12 V",
                 (byte) 3,
-                Product.Category.BATTERY,
                 12,
                 3000,
-                Battery.FormFactor.PRISMATIC,
+                "PRISMATIC",
                 12
         );
         //when
@@ -78,10 +76,10 @@ public class BatteryMapperTest {
         Assertions.assertEquals(battery.getManufacturer(), createBatteryRequest.manufacturer());
         Assertions.assertEquals(battery.getDescription(), createBatteryRequest.description());
         Assertions.assertEquals(battery.getRating(), createBatteryRequest.rating());
-        Assertions.assertEquals(battery.getCategory(), createBatteryRequest.category());
+        Assertions.assertEquals(battery.getCategory(), Product.Category.BATTERY);
         Assertions.assertEquals(battery.getNominalVoltage(), createBatteryRequest.nominalVoltage());
         Assertions.assertEquals(battery.getCapacity(), createBatteryRequest.capacity());
-        Assertions.assertEquals(battery.getForm(), createBatteryRequest.form());
+        Assertions.assertEquals(battery.getForm().toString(), createBatteryRequest.form());
         Assertions.assertEquals(battery.getBatteryTerminalDiameter(), createBatteryRequest.batteryTerminalDiameter());
 
 

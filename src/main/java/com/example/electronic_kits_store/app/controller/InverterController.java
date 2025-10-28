@@ -3,6 +3,7 @@ package com.example.electronic_kits_store.app.controller;
 import com.example.electronic_kits_store.app.dto.inverter.CreateInverterRequest;
 import com.example.electronic_kits_store.app.dto.inverter.InverterDTO;
 import com.example.electronic_kits_store.app.service.InverterService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -35,7 +36,7 @@ public class InverterController {
 
     }
     @PostMapping("/create")
-    public ResponseEntity<InverterDTO> create(@RequestBody CreateInverterRequest createInverterRequest) {
+    public ResponseEntity<InverterDTO> create(@Valid @RequestBody CreateInverterRequest createInverterRequest) {
         return ResponseEntity.status(201).body(inverterService.create(createInverterRequest));
     }
 }

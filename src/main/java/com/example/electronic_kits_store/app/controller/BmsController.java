@@ -2,6 +2,7 @@ package com.example.electronic_kits_store.app.controller;
 import com.example.electronic_kits_store.app.dto.bms.BmsDTO;
 import com.example.electronic_kits_store.app.dto.bms.CreateBmsRequest;
 import com.example.electronic_kits_store.app.service.BmsService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -32,7 +33,7 @@ public class BmsController {
 
     }
     @PostMapping("/create")
-    public ResponseEntity<BmsDTO> create(@RequestBody CreateBmsRequest createBmsRequest) {
+    public ResponseEntity<BmsDTO> create(@Valid @RequestBody CreateBmsRequest createBmsRequest) {
         return ResponseEntity.status(201).body(bmsService.create(createBmsRequest));
     }
 }

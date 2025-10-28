@@ -21,7 +21,6 @@ public class BmsMapperTest {
         bms.setDescription("high performance BMS with active balancer 12 V");
         bms.setRating((byte) 5);
         bms.setPictureUrl("/45.jpg");
-        bms.setCategory(Product.Category.BMS);
         bms.setMaxPower(2200);
         bms.setBalancerType(Bms.Balancer.ACTIVE);
         bms.setMinStringSupported(2);
@@ -41,9 +40,9 @@ public class BmsMapperTest {
         Assertions.assertEquals(bms.getDescription(), bmsDTO.description());
         Assertions.assertEquals(bms.getRating(), bmsDTO.rating());
         Assertions.assertEquals(bms.getPictureUrl(), bmsDTO.pictureUrl());
-        Assertions.assertEquals(bms.getCategory(), bmsDTO.category());
+        Assertions.assertEquals(bms.getCategory().toString(), bmsDTO.category());
         Assertions.assertEquals(bms.getMaxPower(), bmsDTO.maxPower());
-        Assertions.assertEquals(bms.getBalancerType(), bmsDTO.balancerType());
+        Assertions.assertEquals(bms.getBalancerType().toString(), bmsDTO.balancerType());
         Assertions.assertEquals(bms.getMinStringSupported(), bmsDTO.minStringSupported());
         Assertions.assertEquals(bms.getMaxStringSupported(), bmsDTO.maxStringSupported());
         Assertions.assertEquals(bms.getIsBluetooth(), bmsDTO.isBluetooth());
@@ -57,9 +56,8 @@ public class BmsMapperTest {
                 "China",
                 "high performance BMS with active balancer 12 V",
                 (byte) 5,
-                Product.Category.BMS,
                 2000,
-                Bms.Balancer.ACTIVE,
+                "ACTIVE",
                 2,
                 12,
                 true
@@ -79,9 +77,9 @@ public class BmsMapperTest {
         Assertions.assertEquals(bms.getManufacturer(), createBmsRequest.manufacturer());
         Assertions.assertEquals(bms.getDescription(), createBmsRequest.description());
         Assertions.assertEquals(bms.getRating(), createBmsRequest.rating());
-        Assertions.assertEquals(bms.getCategory(), createBmsRequest.category());
+        Assertions.assertEquals(bms.getCategory(), Product.Category.BMS);
         Assertions.assertEquals(bms.getMaxPower(), createBmsRequest.maxPower());
-        Assertions.assertEquals(bms.getBalancerType(), createBmsRequest.balancerType());
+        Assertions.assertEquals(bms.getBalancerType().toString(), createBmsRequest.balancerType());
         Assertions.assertEquals(bms.getMinStringSupported(), createBmsRequest.minStringSupported());
         Assertions.assertEquals(bms.getMaxStringSupported(), createBmsRequest.maxStringSupported());
         Assertions.assertEquals(bms.getIsBluetooth(), createBmsRequest.isBluetooth());

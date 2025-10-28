@@ -3,6 +3,7 @@ package com.example.electronic_kits_store.app.controller;
 import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
 import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.service.BatteryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -35,7 +36,7 @@ public class BatteryController {
 
     }
     @PostMapping("/create")
-    public ResponseEntity<BatteryDTO> create(@RequestBody CreateBatteryRequest createBatteryRequest) {
+    public ResponseEntity<BatteryDTO> create(@Valid @RequestBody CreateBatteryRequest createBatteryRequest) {
         return ResponseEntity.status(201).body(batteryService.create(createBatteryRequest));
     }
 }

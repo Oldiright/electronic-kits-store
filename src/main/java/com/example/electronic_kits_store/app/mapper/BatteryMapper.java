@@ -5,7 +5,6 @@ import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.model.Battery;
 import org.mapstruct.Mapper;
 
-
 @Mapper(componentModel = "spring")
 public interface BatteryMapper extends AbstractMapper<Battery, BatteryDTO, CreateBatteryRequest> {
 

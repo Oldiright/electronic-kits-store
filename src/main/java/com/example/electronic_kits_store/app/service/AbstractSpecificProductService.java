@@ -1,11 +1,15 @@
 package com.example.electronic_kits_store.app.service;
 
+import com.example.electronic_kits_store.app.exception.DuplicateProductNameException;
 import com.example.electronic_kits_store.app.mapper.AbstractMapper;
 import com.example.electronic_kits_store.app.model.Product;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.time.LocalDateTime;
 
 
 @RequiredArgsConstructor
@@ -13,7 +17,14 @@ public class AbstractSpecificProductService<E extends Product, D, R> {
     private final JpaRepository<E, Long> repository;
     private final AbstractMapper<E, D, R> mapper;
     public D create(R createRequest) {
-        return mapper.toDto(repository.save(mapper.toEntity(createRequest)));
+        try {
+            return mapper.toDto(repository.save(mapper.toEntity(createRequest)));
+        } catch (DataIntegrityViolationException e) {
+            if (e.getMessage().contains("uq_product_name")) {
+                throw new DuplicateProductNameException("Продукт з такою назвою вже існує");
+            }
+            throw e;
+        }
     }
 
     public D findById(long id) {

@@ -47,6 +47,5 @@ public class Customer {
     public void addOrder(Order order) {
         order.setCustomer(this);
         orders.add(order);
-        String s = "";
     }
 }

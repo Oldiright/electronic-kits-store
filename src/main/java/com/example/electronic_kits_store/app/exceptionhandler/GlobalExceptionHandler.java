@@ -1,5 +1,6 @@
 package com.example.electronic_kits_store.app.exceptionhandler;
 
+import com.example.electronic_kits_store.app.exception.DuplicateProductNameException;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +29,9 @@ public class GlobalExceptionHandler {
                         fieldError -> (fieldError.getDefaultMessage() != null) ? fieldError.getDefaultMessage() : "Невідома помилка валідації"
                 ));
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(DuplicateProductNameException.class)
+    public ResponseEntity<String> handleMethodDuplicateProductNameException(DuplicateProductNameException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }

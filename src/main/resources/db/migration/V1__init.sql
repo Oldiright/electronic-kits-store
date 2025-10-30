@@ -6,26 +6,47 @@ CREATE SEQUENCE IF NOT EXISTS product_seq_id
 CREATE TABLE IF NOT EXISTS product (
     id BIGINT DEFAULT nextval('product_seq_id'),
     cost NUMERIC,
-    rating TINYINT,
+    rating SMALLINT,
     description VARCHAR(1000),
-    name VARCHAR(120),
+    name VARCHAR(120) NOT NULL UNIQUE, -- Додано NOT NULL та UNIQUE
     manufacturer VARCHAR(50),
     picture VARCHAR(255),
-    category TINYINT,
-    CONSTRAINT pk_customer_id PRIMARY KEY (id)
+    category SMALLINT,
+    quantity_in_stock INTEGER DEFAULT 0,
+    is_available BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP, -- Автогенерація часу
+    updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT pk_product_id PRIMARY KEY (id),
+    CONSTRAINT uq_product_name UNIQUE (name) -- Явний constraint для унікальності
 );
+-- Тригер для автоматичного оновлення updated_at
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$ language 'plpgsql';
 
-CREATE INDEX idx_product_name ON product (name);
-CREATE INDEX idx_product_manufacturer ON product (manufacturer);
-CREATE INDEX idx_product_category ON product (category);
-CREATE INDEX idx_product_cost ON product (cost);
+CREATE TRIGGER update_product_updated_at
+    BEFORE UPDATE ON product
+    FOR EACH ROW
+    EXECUTE FUNCTION update_updated_at_column();
+
+    -- Оновлення індексів (додаємо індекси для нових важливих полів, якщо потрібно):
+    -- Індекси для пошуку:
+CREATE INDEX IF NOT EXISTS idx_product_available ON product (is_available, quantity_in_stock);
+CREATE INDEX IF NOT EXISTS idx_product_name ON product (name);
+CREATE INDEX IF NOT EXISTS idx_product_manufacturer ON product (manufacturer);
+CREATE INDEX IF NOT EXISTS idx_product_category ON product (category);
+CREATE INDEX IF NOT EXISTS idx_product_cost ON product (cost);
 
 -- Створюємо таблицю battery
 CREATE TABLE IF NOT EXISTS battery (
     battery_id BIGINT NOT NULL PRIMARY KEY,
     battery_terminal_diameter INTEGER,
     capacity INTEGER,
-    form TINYINT CHECK (form BETWEEN 0 AND 1),
+    form SMALLINT CHECK (form BETWEEN 0 AND 1),
     nominal_voltage INTEGER,
     FOREIGN KEY (battery_id) REFERENCES product(id)
 );
@@ -33,7 +54,7 @@ CREATE TABLE IF NOT EXISTS battery (
 -- Створюємо таблицю bms
 CREATE TABLE IF NOT EXISTS bms (
     bms_id BIGINT NOT NULL PRIMARY KEY,
-    balancer_type TINYINT CHECK (balancer_type BETWEEN 0 AND 1),
+    balancer_type SMALLINT CHECK (balancer_type BETWEEN 0 AND 1),
     bluetooth_availability BOOLEAN,
     max_power INTEGER,
     max_string_supported INTEGER,
@@ -44,7 +65,7 @@ CREATE TABLE IF NOT EXISTS bms (
 -- Створюємо таблицю inverter
 CREATE TABLE IF NOT EXISTS inverter (
     inverter_id BIGINT NOT NULL PRIMARY KEY,
-    input_voltage TINYINT CHECK (input_voltage BETWEEN 0 AND 1),
+    input_voltage SMALLINT CHECK (input_voltage BETWEEN 0 AND 1),
     power INTEGER,
     FOREIGN KEY (inverter_id) REFERENCES product(id)
 );
@@ -136,7 +157,7 @@ CREATE SEQUENCE IF NOT EXISTS seq_customer_id
 
 -- Цей крок є обов'язковим для PostgreSQL і рекомендований для H2,
 -- щоб відповідати конфігурації @SequenceGenerator
-CREATE SEQUENCE seq_order_items_id
+CREATE SEQUENCE IF NOT EXISTS seq_order_items_id
     INCREMENT BY 1
     START WITH 1
     CACHE 1;

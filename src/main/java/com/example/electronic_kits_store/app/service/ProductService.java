@@ -2,17 +2,11 @@ package com.example.electronic_kits_store.app.service;
 
 
 import com.example.electronic_kits_store.app.dto.product.ProductDTO;
+import com.example.electronic_kits_store.app.exception.ResourceNotFoundException;
 import com.example.electronic_kits_store.app.mapper.ProductMapper;
 import com.example.electronic_kits_store.app.projection.ProductProjection;
-import com.example.electronic_kits_store.app.repository.BatteryRepository;
-import com.example.electronic_kits_store.app.repository.BmsRepository;
-import com.example.electronic_kits_store.app.repository.InverterRepository;
-import com.example.electronic_kits_store.app.repository.MiscellaneousRepository;
-import com.example.electronic_kits_store.app.repository.PowerBlockRepository;
 import com.example.electronic_kits_store.app.repository.ProductRepository;
-import com.example.electronic_kits_store.app.repository.WireLugRepository;
-import com.example.electronic_kits_store.app.repository.WireRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,22 +16,16 @@ import org.springframework.stereotype.Service;
 
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class ProductService {
     private final ProductRepository productRepository;
-    private final BatteryRepository batteryRepository;
-    private final BmsRepository bmsRepository;
-    private final InverterRepository inverterRepository;
-    private final MiscellaneousRepository miscellaneousRepository;
-    private final PowerBlockRepository powerBlockRepository;
-    private final WireRepository wireRepository;
-    private final WireLugRepository wireLugRepository;
-    private final ObjectMapper objectMapper;
     private final ProductMapper productMapper;
 
     public ProductDTO findById(long id) {
         ProductProjection product = productRepository.findProjectedById(id);
         return productMapper.toDto(product);
+        //todo add  check existing
     }
     public Page<ProductDTO> findAll(Pageable pageable) {
         Page<ProductProjection> productProjections = productRepository.findAllProjectedBy(pageable);
@@ -48,8 +36,37 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    //todo upload product's image(s)
+    public ProductDTO addImage(Long productId, String imagePath) {
+        var product = productRepository.findById(productId)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+        product.setPictureUrl(imagePath);
+        var saved = productRepository.save(product);
+        return productMapper.toDtoFromEntity(saved);
+    }
+    public void removeImage(Long productId, String imagePath) {
+        var product = productRepository.findById(productId)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+        product.setPictureUrl(null);
+        productRepository.save(product);
+    }
 
+//    public ProductDTO addImage(Long productId, String imagePath, boolean isMain) {
+//        var product = productRepository.findById(productId)
+//                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+//
+////        if (isMain) {
+////            // Видаляємо стару головну картинку якщо потрібно
+////            product.setMainImagePath(imagePath);
+////        } else {
+////            if (product.getAdditionalImagePaths() == null) {
+////                product.setAdditionalImagePaths(new ArrayList<>());
+////            }
+////            product.getAdditionalImagePaths().add(imagePath);
+////        }
+//
+//        var saved = productRepository.save(product);
+//        return convertToDTO(saved);
+//    }
 
     //    public Product createWithBenefits(Map<String, String> productProperties, String category) throws ClassNotFoundException, JsonProcessingException {
 //

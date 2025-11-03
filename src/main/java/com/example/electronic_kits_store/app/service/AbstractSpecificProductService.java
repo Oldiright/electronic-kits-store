@@ -1,6 +1,7 @@
 package com.example.electronic_kits_store.app.service;
 
 import com.example.electronic_kits_store.app.exception.DuplicateProductNameException;
+import com.example.electronic_kits_store.app.exception.ResourceNotFoundException;
 import com.example.electronic_kits_store.app.mapper.AbstractMapper;
 import com.example.electronic_kits_store.app.model.Product;
 import lombok.RequiredArgsConstructor;
@@ -8,8 +9,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.time.LocalDateTime;
 
 
 @RequiredArgsConstructor
@@ -26,11 +25,10 @@ public class AbstractSpecificProductService<E extends Product, D, R> {
             throw e;
         }
     }
-
     public D findById(long id) {
-        return mapper.toDto(repository.findById(id).orElseThrow());
+        return mapper.toDto(repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Product with id = %s not found.", id))));
     }
-
     public Page<D> findAll(Pageable pageable) {
         return repository.findAll(pageable).map(mapper::toDto);
     }

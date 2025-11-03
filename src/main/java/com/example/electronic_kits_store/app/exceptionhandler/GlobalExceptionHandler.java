@@ -1,6 +1,9 @@
 package com.example.electronic_kits_store.app.exceptionhandler;
 
 import com.example.electronic_kits_store.app.exception.DuplicateProductNameException;
+import com.example.electronic_kits_store.app.exception.FileStorageException;
+import com.example.electronic_kits_store.app.exception.InvalidFileException;
+import com.example.electronic_kits_store.app.exception.ResourceNotFoundException;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,4 +37,23 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleMethodDuplicateProductNameException(DuplicateProductNameException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleMethodResourceNotFoundException(ResourceNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(FileStorageException.class)
+    public ResponseEntity<String> handleMethodFileStorageException(FileStorageException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InvalidFileException.class)
+    public ResponseEntity<String> handleMethodInvalidFileException(InvalidFileException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+
+
+
 }

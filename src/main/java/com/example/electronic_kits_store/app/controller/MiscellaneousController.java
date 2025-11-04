@@ -33,8 +33,4 @@ public class MiscellaneousController {
         Pageable pageable = PageRequest.of(page, size);
         return ResponseEntity.ok(miscellaneousService.findAll(pageable));
     }
-    @PostMapping("/create")
-    public ResponseEntity<MiscellaneousDTO> create(@Valid @RequestBody CreateMiscellaneousRequest createMiscellaneousRequest) {
-        return ResponseEntity.status(201).body(miscellaneousService.create(createMiscellaneousRequest));
-    }
 }

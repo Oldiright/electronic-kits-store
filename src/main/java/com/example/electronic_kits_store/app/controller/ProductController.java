@@ -38,22 +38,6 @@ public class ProductController {
         return ResponseEntity.ok(productService.findAll(pageable));
 
     }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
-        productService.delete(id);
-        return ResponseEntity.noContent().build();
-    }
-    @PostMapping("/{id}/images/{category}")
-    public ResponseEntity<ProductDTO> uploadImage(
-            @PathVariable Long id,
-            @RequestParam("file") MultipartFile file, @PathVariable String category) {
-
-        String imagePath = fileStorageService.saveProductImage(id, file, category);
-        var product = productService.addImage(id, imagePath);
-
-        return ResponseEntity.ok(product);
-    }
     @GetMapping("/images/{category}/{productId}/{filename:.+}")
     public ResponseEntity<Resource> getImage(@PathVariable String category,
             @PathVariable Long productId,

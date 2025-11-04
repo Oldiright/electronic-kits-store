@@ -4,13 +4,20 @@ import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
 import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.model.Battery;
 import com.example.electronic_kits_store.app.model.Product;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
+import java.util.TimeZone;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BatteryMapperTest {
 
     private final BatteryMapper batteryMapper = new BatteryMapperImpl();
+//    @BeforeAll
+//    static void setup() {
+//        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+//    }
     @Test
     void shouldProperlyMapEntityToDto() {
         //given
@@ -76,4 +83,18 @@ public class BatteryMapperTest {
         assertEquals(createBatteryRequest.form(), battery.getForm().toString());
         assertEquals(createBatteryRequest.batteryTerminalDiameter(), battery.getBatteryTerminalDiameter());
     }
+
+    @Test
+    void shouldProperlyMapStringCategoryToBatteryForm() {
+        //given
+       String form = "PRISMATIC";
+
+        //when
+        Battery.FormFactor formFactor = batteryMapper.stringToFormFactor(form);
+
+        //then
+        assertNotNull(formFactor);
+        assertEquals(Battery.FormFactor.PRISMATIC, formFactor);
+    }
+
 }

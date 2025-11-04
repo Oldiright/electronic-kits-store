@@ -1,11 +1,13 @@
 version: '3.8'
 services:
   postgres:
-    image: postgres:16
+    image: postgres:17
     environment:
       POSTGRES_USER: User
       POSTGRES_PASSWORD: Password
       POSTGRES_DB: Store
+      TZ: UTC
+      PGTZ: UTC
     ports:
       - "5437:5432"
     volumes:

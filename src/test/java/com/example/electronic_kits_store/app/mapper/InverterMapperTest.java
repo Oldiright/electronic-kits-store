@@ -3,14 +3,21 @@ import com.example.electronic_kits_store.app.dto.inverter.CreateInverterRequest;
 import com.example.electronic_kits_store.app.dto.inverter.InverterDTO;
 import com.example.electronic_kits_store.app.model.Inverter;
 import com.example.electronic_kits_store.app.model.Product;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InverterMapperTest {
     private final InverterMapper inverterMapper= new InverterMapperImpl();
+
+//    @BeforeAll
+//    static void setup() {
+//        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+//    }
 
     @Test
     void shouldProperlyMapEntityToDto() {

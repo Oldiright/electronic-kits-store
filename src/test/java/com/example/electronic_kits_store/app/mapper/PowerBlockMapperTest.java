@@ -4,13 +4,21 @@ import com.example.electronic_kits_store.app.dto.powerblock.CreatePowerBlockRequ
 import com.example.electronic_kits_store.app.dto.powerblock.PowerBlockDTO;
 import com.example.electronic_kits_store.app.model.PowerBlock;
 import com.example.electronic_kits_store.app.model.Product;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
+import java.util.TimeZone;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PowerBlockMapperTest {
     private final PowerBlockMapper powerBlockMapper = new PowerBlockMapperImpl();
+
+//    @BeforeAll
+//    static void setup() {
+//        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+//    }
 
     @Test
     void shouldProperlyMapEntityToDto() {

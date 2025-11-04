@@ -32,8 +32,5 @@ public class PowerBlockController {
         Pageable pageable = PageRequest.of(page, size);
         return ResponseEntity.ok(powerBlockService.findAll(pageable));
     }
-    @PostMapping("/create")
-    public ResponseEntity<PowerBlockDTO> create(@Valid @RequestBody CreatePowerBlockRequest createPowerBlockRequest) {
-        return ResponseEntity.status(201).body(powerBlockService.create(createPowerBlockRequest));
-    }
+
 }

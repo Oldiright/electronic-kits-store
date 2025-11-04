@@ -12,9 +12,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 @RequiredArgsConstructor
-public class AbstractSpecificProductService<E extends Product, D, R> {
-    private final JpaRepository<E, Long> repository;
-    private final AbstractMapper<E, D, R> mapper;
+public class AbstractSpecificProductService<E extends Product, D, R, M extends AbstractMapper<E, D, R>> {
+    protected final JpaRepository<E, Long> repository;
+    protected final M mapper;
     public D create(R createRequest) {
         try {
             return mapper.toDto(repository.save(mapper.toEntity(createRequest)));

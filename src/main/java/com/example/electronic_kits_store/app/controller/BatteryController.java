@@ -35,8 +35,4 @@ public class BatteryController {
         return ResponseEntity.ok(batteryService.findAll(pageable));
 
     }
-    @PostMapping("/create")
-    public ResponseEntity<BatteryDTO> create(@Valid @RequestBody CreateBatteryRequest createBatteryRequest) {
-        return ResponseEntity.status(201).body(batteryService.create(createBatteryRequest));
-    }
 }

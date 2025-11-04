@@ -4,15 +4,22 @@ import com.example.electronic_kits_store.app.dto.wirelug.CreateWireLugRequest;
 import com.example.electronic_kits_store.app.dto.wirelug.WireLugDTO;
 import com.example.electronic_kits_store.app.model.Product;
 import com.example.electronic_kits_store.app.model.WireLug;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WireLugMapperTest {
     private final WireLugMapper wireLugMapper = new WireLugMapperImpl();
+
+//    @BeforeAll
+//    static void setup() {
+//        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+//    }
 
     @Test
     void shouldProperlyMapEntityToDto() {

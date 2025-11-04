@@ -4,15 +4,23 @@ import com.example.electronic_kits_store.app.dto.wire.CreateWireRequest;
 import com.example.electronic_kits_store.app.dto.wire.WireDTO;
 import com.example.electronic_kits_store.app.model.Product;
 import com.example.electronic_kits_store.app.model.Wire;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WireMapperTest {
     private final WireMapper wireMapper= new WireMapperImpl();
+
+
+//    @BeforeAll
+//    static void setup() {
+//        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+//    }
     @Test
     void shouldProperlyMapEntityToDto() {
         //given

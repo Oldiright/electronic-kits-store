@@ -23,7 +23,6 @@ public class BmsController {
     @GetMapping("/{id}")
     public ResponseEntity<BmsDTO> findById(@PathVariable long id) {
         return ResponseEntity.ok(bmsService.findById(id));
-
     }
     @GetMapping("/all")
     public ResponseEntity<Page<BmsDTO>>findAll(@RequestParam(defaultValue = "0") int page,
@@ -31,9 +30,5 @@ public class BmsController {
         Pageable pageable = PageRequest.of(page, size);
         return ResponseEntity.ok(bmsService.findAll(pageable));
 
-    }
-    @PostMapping("/create")
-    public ResponseEntity<BmsDTO> create(@Valid @RequestBody CreateBmsRequest createBmsRequest) {
-        return ResponseEntity.status(201).body(bmsService.create(createBmsRequest));
     }
 }

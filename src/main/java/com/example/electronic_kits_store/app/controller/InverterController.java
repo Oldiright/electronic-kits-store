@@ -33,10 +33,5 @@ public class InverterController {
                                                     @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
         return ResponseEntity.ok(inverterService.findAll(pageable));
-
-    }
-    @PostMapping("/create")
-    public ResponseEntity<InverterDTO> create(@Valid @RequestBody CreateInverterRequest createInverterRequest) {
-        return ResponseEntity.status(201).body(inverterService.create(createInverterRequest));
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -17,6 +18,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class FileStorageService {
 
@@ -49,6 +51,8 @@ public class FileStorageService {
             throw new FileStorageException("Не вдалося зберегти файл", e);
         }
     }
+
+    //todo deleteProductImage(Long productId, imagePath)
 
 
     public Resource loadImage(String imagePath) {

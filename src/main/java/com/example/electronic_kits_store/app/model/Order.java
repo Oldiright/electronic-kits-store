@@ -55,7 +55,14 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     @Builder.Default
     private List<OrderItem> orderItems = new ArrayList<>();
-
+    public BigDecimal calculateTotalPrice() {
+        BigDecimal price = BigDecimal.valueOf(0);
+        for(OrderItem item: orderItems) {
+            price =  price.add(BigDecimal.valueOf(item.getQuantity()).multiply(item.getProduct().getCost()));
+        }
+        totalPrice = price;
+        return totalPrice;
+    }
     private enum OrderStatus {
         IN_PROCESSING,
         VALIDATED,

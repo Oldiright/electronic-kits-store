@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.validation.FieldError;
 
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -23,14 +24,22 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+    public ResponseEntity<List<Map<String, String>>> handleValidationExceptions(MethodArgumentNotValidException ex) {
 
-        // 1. Збираємо помилки полів у Map: { "назва_поля": "повідомлення_помилки" }
-        Map<String, String> errors = ex.getBindingResult().getFieldErrors().stream()
-                .collect(Collectors.toMap(
-                        FieldError::getField,
-                        fieldError -> (fieldError.getDefaultMessage() != null) ? fieldError.getDefaultMessage() : "Невідома помилка валідації"
-                ));
+        List<Map<String, String>> errors = ex.getBindingResult()
+                .getAllErrors()
+                .stream()
+                .map(error -> {
+                    String fieldName = (error instanceof FieldError fieldError)
+                            ? fieldError.getField()
+                            : error.getObjectName();
+                    String message = (error.getDefaultMessage() != null)
+                            ? error.getDefaultMessage()
+                            : "Невідома помилка валідації";
+                    return Map.of("field", fieldName, "message", message);
+                })
+                .toList();
+
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(DuplicateProductNameException.class)

@@ -61,7 +61,6 @@ public class AdminController {
     @PutMapping("battery/update")
     public ResponseEntity<BatteryDTO> updateBattery(@Valid @RequestBody UpdateBatteryRequest updateBatteryRequest) {
         return ResponseEntity.ok(batteryService.updateBattery(updateBatteryRequest));
-
     }
     @PostMapping("bms/create")
     public ResponseEntity<BmsDTO> createBms(@Valid @RequestBody CreateBmsRequest createBmsRequest) {

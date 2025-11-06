@@ -1,18 +1,20 @@
 package com.example.electronic_kits_store.app.controller;
 
-import com.example.electronic_kits_store.app.dto.Miscellaneous.CreateMiscellaneousRequest;
-import com.example.electronic_kits_store.app.dto.Miscellaneous.MiscellaneousDTO;
+import com.example.electronic_kits_store.app.dto.miscellaneous.CreateMiscellaneousRequest;
+import com.example.electronic_kits_store.app.dto.miscellaneous.MiscellaneousDTO;
 import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
 import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.dto.battery.UpdateBatteryRequest;
 import com.example.electronic_kits_store.app.dto.bms.BmsDTO;
 import com.example.electronic_kits_store.app.dto.bms.CreateBmsRequest;
+import com.example.electronic_kits_store.app.dto.bms.UpdateBmsRequest;
 import com.example.electronic_kits_store.app.dto.inverter.CreateInverterRequest;
 import com.example.electronic_kits_store.app.dto.inverter.InverterDTO;
+import com.example.electronic_kits_store.app.dto.inverter.UpdateInverterRequest;
 import com.example.electronic_kits_store.app.dto.powerblock.CreatePowerBlockRequest;
 import com.example.electronic_kits_store.app.dto.powerblock.PowerBlockDTO;
+import com.example.electronic_kits_store.app.dto.powerblock.UpdatePowerBlockRequest;
 import com.example.electronic_kits_store.app.dto.product.ProductDTO;
-import com.example.electronic_kits_store.app.model.Product;
 import com.example.electronic_kits_store.app.service.BatteryService;
 import com.example.electronic_kits_store.app.service.BmsService;
 import com.example.electronic_kits_store.app.service.FileStorageService;
@@ -30,7 +32,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -57,23 +58,41 @@ public class AdminController {
     }
     @PutMapping("battery/update")
     public ResponseEntity<BatteryDTO> updateBattery(@Valid @RequestBody UpdateBatteryRequest updateBatteryRequest) {
-        return ResponseEntity.ok(batteryService.updateBattery(updateBatteryRequest));
+        return ResponseEntity.ok(batteryService.update(updateBatteryRequest));
     }
     @PostMapping("bms/create")
     public ResponseEntity<BmsDTO> createBms(@Valid @RequestBody CreateBmsRequest createBmsRequest) {
         return ResponseEntity.status(201).body(bmsService.create(createBmsRequest));
     }
+    @PutMapping("bms/update")
+    public ResponseEntity<BmsDTO> updateBms(@Valid @RequestBody UpdateBmsRequest updateBmsRequest) {
+        return ResponseEntity.ok(bmsService.update(updateBmsRequest));
+    }
     @PostMapping("inverter/create")
     public ResponseEntity<InverterDTO> createInverter(@Valid @RequestBody CreateInverterRequest createInverterRequest) {
         return ResponseEntity.status(201).body(inverterService.create(createInverterRequest));
     }
+
+    @PutMapping("inverter/update")
+    public ResponseEntity<InverterDTO> updateInverter(@Valid @RequestBody UpdateInverterRequest updateInverterRequest) {
+        return ResponseEntity.ok(inverterService.update(updateInverterRequest));
+    }
+
     @PostMapping("miscellaneous/create")
     public ResponseEntity<MiscellaneousDTO> createMiscellaneous(@Valid @RequestBody CreateMiscellaneousRequest createMiscellaneousRequest) {
         return ResponseEntity.status(201).body(miscellaneousService.create(createMiscellaneousRequest));
     }
+    @PutMapping("miscellaneous/update")
+    public ResponseEntity<MiscellaneousDTO> updateMiscellaneous(@Valid @RequestBody CreateMiscellaneousRequest createMiscellaneousRequest) {
+        return ResponseEntity.ok(miscellaneousService.create(createMiscellaneousRequest));
+    }
     @PostMapping("powerblock/create")
     public ResponseEntity<PowerBlockDTO> createPowerBlock(@Valid @RequestBody CreatePowerBlockRequest createPowerBlockRequest) {
         return ResponseEntity.status(201).body(powerBlockService.create(createPowerBlockRequest));
+    }
+    @PutMapping("powerblock/update")
+    public ResponseEntity<PowerBlockDTO> updatePowerBlock(@Valid @RequestBody UpdatePowerBlockRequest updatePowerBlockRequest) {
+        return ResponseEntity.ok(powerBlockService.update(updatePowerBlockRequest));
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {

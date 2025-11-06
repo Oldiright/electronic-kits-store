@@ -1,18 +1,16 @@
-package com.example.electronic_kits_store.app.dto.bms;
+package com.example.electronic_kits_store.app.dto.inverter;
 
-import com.example.electronic_kits_store.app.validation.ValidRange;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
-@ValidRange(minField = "minStringSupported", maxField = "maxStringSupported",
-        message = "minStringSupported має бути менше за maxStringSupported")
 
-public record UpdateBmsRequest(
+public record UpdateInverterRequest(
         @NotNull(message = "Id is necessary!")
         Long id,
         @Size(min = 1, message = "Назва не може бути порожньою")
@@ -29,13 +27,9 @@ public record UpdateBmsRequest(
         @Min(value = 0, message = "Рейтинг не може бути менше 0")
         @Max(value = 5, message = "Рейтинг не може бути більше 5")
         Byte rating,
-        @Positive(message = "Номінальна потужність повинна бути більшою за 0")
-        Integer maxPower,
-        String balancerType,
         @Positive
-        Integer minStringSupported,
-        @Positive
-        Integer maxStringSupported,
-        Boolean isBluetooth
-){
+        Integer power,
+        @Pattern(regexp = "^(12|24)$", message = "Вхідна напруга повинна бути '12' або '24'")
+        String inputVoltage
+) {
 }

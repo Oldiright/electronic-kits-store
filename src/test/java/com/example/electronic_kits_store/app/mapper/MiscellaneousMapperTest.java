@@ -1,15 +1,13 @@
 package com.example.electronic_kits_store.app.mapper;
 
-import com.example.electronic_kits_store.app.dto.Miscellaneous.CreateMiscellaneousRequest;
-import com.example.electronic_kits_store.app.dto.Miscellaneous.MiscellaneousDTO;
+import com.example.electronic_kits_store.app.dto.miscellaneous.CreateMiscellaneousRequest;
+import com.example.electronic_kits_store.app.dto.miscellaneous.MiscellaneousDTO;
 import com.example.electronic_kits_store.app.model.Miscellaneous;
 import com.example.electronic_kits_store.app.model.Product;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.*;
 

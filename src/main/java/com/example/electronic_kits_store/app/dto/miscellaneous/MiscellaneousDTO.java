@@ -1,4 +1,4 @@
-package com.example.electronic_kits_store.app.dto.Miscellaneous;
+package com.example.electronic_kits_store.app.dto.miscellaneous;
 
 
 import java.math.BigDecimal;

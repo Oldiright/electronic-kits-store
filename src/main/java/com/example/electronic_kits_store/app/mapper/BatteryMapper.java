@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface BatteryMapper extends AbstractMapper<Battery, BatteryDTO, CreateBatteryRequest> {
-    Battery.FormFactor stringToFormFactor(String formFactor);
+//    Battery.FormFactor stringToFormFactor(String formFactor);
 
 //    @Mappings({
 //            @Mapping(target = "id", source = "id"),

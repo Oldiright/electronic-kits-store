@@ -17,39 +17,17 @@ public class BatteryService extends AbstractSpecificProductService<Battery, Batt
     public BatteryService(BatteryRepository repository, BatteryMapper mapper) {
         super(repository, mapper);
     }
-    public BatteryDTO updateBattery(UpdateBatteryRequest updateBatteryRequest) {
+    public BatteryDTO update(UpdateBatteryRequest updateBatteryRequest) {
         Battery battery = repository.findById(updateBatteryRequest.id()).orElseThrow();
-        if(updateBatteryRequest.name() != null) {
-            battery.setName(updateBatteryRequest.name());
-        }
-        if(updateBatteryRequest.cost() != null) {
-            battery.setCost(updateBatteryRequest.cost());
-        }
-        if(updateBatteryRequest.manufacturer() != null) {
-            battery.setManufacturer(updateBatteryRequest.manufacturer());
-        }
-        if(updateBatteryRequest.description() != null) {
-            battery.setDescription(updateBatteryRequest.description());
-        }
-        if(updateBatteryRequest.rating() != null) {
-            battery.setRating(updateBatteryRequest.rating());
-        }
-        if(updateBatteryRequest.nominalVoltage() != null) {
-            battery.setNominalVoltage(updateBatteryRequest.nominalVoltage());
-        }
-        if(updateBatteryRequest.rating() != null) {
-            battery.setRating(updateBatteryRequest.rating());
-        }
-        if(updateBatteryRequest.capacity() != null) {
-            battery.setCapacity(updateBatteryRequest.capacity());
-        }
-        if(updateBatteryRequest.form() != null) {
-            battery.setForm(mapper.stringToFormFactor(updateBatteryRequest.form()));
-        }
-        if(updateBatteryRequest.batteryTerminalDiameter() != null) {
-            battery.setBatteryTerminalDiameter(updateBatteryRequest.batteryTerminalDiameter());
-        }
-
+        if(updateBatteryRequest.name() != null) {battery.setName(updateBatteryRequest.name());}
+        if(updateBatteryRequest.cost() != null) {battery.setCost(updateBatteryRequest.cost());}
+        if(updateBatteryRequest.manufacturer() != null) {battery.setManufacturer(updateBatteryRequest.manufacturer());}
+        if(updateBatteryRequest.description() != null) {battery.setDescription(updateBatteryRequest.description());}
+        if(updateBatteryRequest.rating() != null) {battery.setRating(updateBatteryRequest.rating());}
+        if(updateBatteryRequest.nominalVoltage() != null) {battery.setNominalVoltage(updateBatteryRequest.nominalVoltage());}
+        if(updateBatteryRequest.capacity() != null) {battery.setCapacity(updateBatteryRequest.capacity());}
+        if(updateBatteryRequest.form() != null) {battery.setForm(Battery.FormFactor.valueOf(updateBatteryRequest.form()));}
+        if(updateBatteryRequest.batteryTerminalDiameter() != null) {battery.setBatteryTerminalDiameter(updateBatteryRequest.batteryTerminalDiameter());}
         return mapper.toDto(repository.save(battery));
     }
 }

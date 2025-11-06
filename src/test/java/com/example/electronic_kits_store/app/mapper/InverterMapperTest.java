@@ -1,6 +1,7 @@
 package com.example.electronic_kits_store.app.mapper;
 import com.example.electronic_kits_store.app.dto.inverter.CreateInverterRequest;
 import com.example.electronic_kits_store.app.dto.inverter.InverterDTO;
+import com.example.electronic_kits_store.app.dto.inverter.UpdateInverterRequest;
 import com.example.electronic_kits_store.app.model.Inverter;
 import com.example.electronic_kits_store.app.model.Product;
 import org.junit.jupiter.api.BeforeAll;
@@ -75,5 +76,17 @@ public class InverterMapperTest {
         assertEquals(Product.Category.INVERTER, inverter.getCategory());
         assertEquals(createInverterRequest.power(), inverter.getPower());
         assertEquals(createInverterRequest.inputVoltage(), inverter.getInputVoltage().toString());
+    }
+
+    @Test
+
+    void valueOfStringInputVoltage() {
+        //given
+        Inverter.InputVoltage inputVoltage = Inverter.InputVoltage.LOW;
+        UpdateInverterRequest updateInverterRequest = new UpdateInverterRequest(null,
+                null, null, null, null, null,null,"12");
+        //when
+        Inverter.InputVoltage checkingVoltage = inverterMapper.convertInputVoltage(updateInverterRequest.inputVoltage());
+        assertEquals(inputVoltage, checkingVoltage);
     }
 }

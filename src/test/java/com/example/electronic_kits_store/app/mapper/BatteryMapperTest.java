@@ -84,17 +84,17 @@ public class BatteryMapperTest {
         assertEquals(createBatteryRequest.batteryTerminalDiameter(), battery.getBatteryTerminalDiameter());
     }
 
-    @Test
-    void shouldProperlyMapStringCategoryToBatteryForm() {
-        //given
-       String form = "PRISMATIC";
-
-        //when
-        Battery.FormFactor formFactor = batteryMapper.stringToFormFactor(form);
-
-        //then
-        assertNotNull(formFactor);
-        assertEquals(Battery.FormFactor.PRISMATIC, formFactor);
-    }
+//    @Test
+//    void shouldProperlyMapStringCategoryToBatteryForm() {
+//        //given
+//       String form = "PRISMATIC";
+//
+//        //when
+//        Battery.FormFactor formFactor = batteryMapper.stringToFormFactor(form);
+//
+//        //then
+//        assertNotNull(formFactor);
+//        assertEquals(Battery.FormFactor.PRISMATIC, formFactor);
+//    }
 
 }

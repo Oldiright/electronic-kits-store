@@ -1,16 +1,11 @@
 package com.example.electronic_kits_store.app.service;
 
-import com.example.electronic_kits_store.app.dto.bms.BmsDTO;
-import com.example.electronic_kits_store.app.dto.bms.UpdateBmsRequest;
 import com.example.electronic_kits_store.app.dto.inverter.CreateInverterRequest;
 import com.example.electronic_kits_store.app.dto.inverter.InverterDTO;
 import com.example.electronic_kits_store.app.dto.inverter.UpdateInverterRequest;
-import com.example.electronic_kits_store.app.mapper.AbstractMapper;
 import com.example.electronic_kits_store.app.mapper.InverterMapper;
-import com.example.electronic_kits_store.app.model.Bms;
 import com.example.electronic_kits_store.app.model.Inverter;
 import com.example.electronic_kits_store.app.repository.InverterRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service

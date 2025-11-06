@@ -4,10 +4,8 @@ import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
 import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.model.Battery;
 import com.example.electronic_kits_store.app.model.Product;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
-import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.*;
 

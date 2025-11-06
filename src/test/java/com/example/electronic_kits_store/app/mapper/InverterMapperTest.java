@@ -4,11 +4,9 @@ import com.example.electronic_kits_store.app.dto.inverter.InverterDTO;
 import com.example.electronic_kits_store.app.dto.inverter.UpdateInverterRequest;
 import com.example.electronic_kits_store.app.model.Inverter;
 import com.example.electronic_kits_store.app.model.Product;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.*;
 

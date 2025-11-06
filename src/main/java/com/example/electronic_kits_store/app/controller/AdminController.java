@@ -11,6 +11,7 @@ import com.example.electronic_kits_store.app.dto.bms.UpdateBmsRequest;
 import com.example.electronic_kits_store.app.dto.inverter.CreateInverterRequest;
 import com.example.electronic_kits_store.app.dto.inverter.InverterDTO;
 import com.example.electronic_kits_store.app.dto.inverter.UpdateInverterRequest;
+import com.example.electronic_kits_store.app.dto.miscellaneous.UpdateMiscellaneousRequest;
 import com.example.electronic_kits_store.app.dto.powerblock.CreatePowerBlockRequest;
 import com.example.electronic_kits_store.app.dto.powerblock.PowerBlockDTO;
 import com.example.electronic_kits_store.app.dto.powerblock.UpdatePowerBlockRequest;
@@ -83,8 +84,8 @@ public class AdminController {
         return ResponseEntity.status(201).body(miscellaneousService.create(createMiscellaneousRequest));
     }
     @PutMapping("miscellaneous/update")
-    public ResponseEntity<MiscellaneousDTO> updateMiscellaneous(@Valid @RequestBody CreateMiscellaneousRequest createMiscellaneousRequest) {
-        return ResponseEntity.ok(miscellaneousService.create(createMiscellaneousRequest));
+    public ResponseEntity<MiscellaneousDTO> updateMiscellaneous(@Valid @RequestBody UpdateMiscellaneousRequest updateMiscellaneousRequest) {
+        return ResponseEntity.ok(miscellaneousService.update(updateMiscellaneousRequest));
     }
     @PostMapping("powerblock/create")
     public ResponseEntity<PowerBlockDTO> createPowerBlock(@Valid @RequestBody CreatePowerBlockRequest createPowerBlockRequest) {

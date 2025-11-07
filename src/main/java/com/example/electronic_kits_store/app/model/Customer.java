@@ -9,10 +9,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,9 @@ public class Customer {
 
     @Column(name = "tel_number")
     private String phoneNumber;
+    @Column(name = "password", nullable = false)
+    @ToString.Exclude
+    private String password;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     @Builder.Default

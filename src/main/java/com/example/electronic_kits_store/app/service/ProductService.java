@@ -3,7 +3,7 @@ package com.example.electronic_kits_store.app.service;
 
 import com.example.electronic_kits_store.app.dto.product.ProductDTO;
 import com.example.electronic_kits_store.app.exception.ResourceNotFoundException;
-import com.example.electronic_kits_store.app.mapper.ProductMapper;
+import com.example.electronic_kits_store.app.mapper.products.ProductMapper;
 import com.example.electronic_kits_store.app.projection.ProductProjection;
 import com.example.electronic_kits_store.app.repository.ProductRepository;
 import jakarta.transaction.Transactional;

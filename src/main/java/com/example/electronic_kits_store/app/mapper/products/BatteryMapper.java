@@ -1,4 +1,4 @@
-package com.example.electronic_kits_store.app.mapper;
+package com.example.electronic_kits_store.app.mapper.products;
 
 import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
 import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
@@ -6,7 +6,7 @@ import com.example.electronic_kits_store.app.model.Battery;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface BatteryMapper extends AbstractMapper<Battery, BatteryDTO, CreateBatteryRequest> {
+public interface BatteryMapper extends AbstractProductMapper<Battery, BatteryDTO, CreateBatteryRequest> {
 //    Battery.FormFactor stringToFormFactor(String formFactor);
 
 //    @Mappings({

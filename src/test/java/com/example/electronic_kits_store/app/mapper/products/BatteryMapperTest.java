@@ -1,4 +1,4 @@
-package com.example.electronic_kits_store.app.mapper;
+package com.example.electronic_kits_store.app.mapper.products;
 
 import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
 import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;

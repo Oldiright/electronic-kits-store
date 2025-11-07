@@ -1,4 +1,4 @@
-package com.example.electronic_kits_store.app.mapper;
+package com.example.electronic_kits_store.app.mapper.products;
 
 import com.example.electronic_kits_store.app.dto.inverter.CreateInverterRequest;
 import com.example.electronic_kits_store.app.dto.inverter.InverterDTO;
@@ -8,7 +8,7 @@ import org.mapstruct.Mapper;
 import java.util.Arrays;
 
 @Mapper(componentModel = "spring")
-public interface InverterMapper extends AbstractMapper<Inverter, InverterDTO, CreateInverterRequest>{
+public interface InverterMapper extends AbstractProductMapper<Inverter, InverterDTO, CreateInverterRequest> {
     default Inverter.InputVoltage convertInputVoltage(String value) {
         if (value == null) {
             return null; // Обробка null-значення

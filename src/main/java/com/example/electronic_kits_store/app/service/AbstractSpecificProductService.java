@@ -2,7 +2,7 @@ package com.example.electronic_kits_store.app.service;
 
 import com.example.electronic_kits_store.app.exception.DuplicateProductNameException;
 import com.example.electronic_kits_store.app.exception.ResourceNotFoundException;
-import com.example.electronic_kits_store.app.mapper.AbstractMapper;
+import com.example.electronic_kits_store.app.mapper.products.AbstractProductMapper;
 import com.example.electronic_kits_store.app.model.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 @RequiredArgsConstructor
-public class AbstractSpecificProductService<E extends Product, D, R, M extends AbstractMapper<E, D, R>> {
+public class AbstractSpecificProductService<E extends Product, D, R, M extends AbstractProductMapper<E, D, R>> {
     protected final JpaRepository<E, Long> repository;
     protected final M mapper;
     public D create(R createRequest) {

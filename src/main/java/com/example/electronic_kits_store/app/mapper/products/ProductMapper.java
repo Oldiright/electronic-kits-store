@@ -1,4 +1,4 @@
-package com.example.electronic_kits_store.app.mapper;
+package com.example.electronic_kits_store.app.mapper.products;
 import com.example.electronic_kits_store.app.dto.product.ProductDTO;
 import com.example.electronic_kits_store.app.model.Product;
 import com.example.electronic_kits_store.app.projection.ProductProjection;

@@ -1,9 +1,9 @@
-package com.example.electronic_kits_store.app.mapper;
+package com.example.electronic_kits_store.app.mapper.products;
 
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-public interface AbstractMapper<E, D, R> {
+public interface AbstractProductMapper<E, D, R> {
 
     D toDto(E product);
 

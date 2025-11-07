@@ -1,13 +1,12 @@
-package com.example.electronic_kits_store.app.mapper;
+package com.example.electronic_kits_store.app.mapper.products;
 
 import com.example.electronic_kits_store.app.dto.powerblock.CreatePowerBlockRequest;
 import com.example.electronic_kits_store.app.dto.powerblock.PowerBlockDTO;
+import com.example.electronic_kits_store.app.mapper.products.PowerBlockMapper;
 import com.example.electronic_kits_store.app.model.PowerBlock;
 import com.example.electronic_kits_store.app.model.Product;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
-import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;

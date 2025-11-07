@@ -3,7 +3,7 @@ package com.example.electronic_kits_store.app.service;
 import com.example.electronic_kits_store.app.dto.battery.BatteryDTO;
 import com.example.electronic_kits_store.app.dto.battery.CreateBatteryRequest;
 import com.example.electronic_kits_store.app.dto.battery.UpdateBatteryRequest;
-import com.example.electronic_kits_store.app.mapper.BatteryMapper;
+import com.example.electronic_kits_store.app.mapper.products.BatteryMapper;
 import com.example.electronic_kits_store.app.model.Battery;
 import com.example.electronic_kits_store.app.repository.BatteryRepository;
 import org.springframework.stereotype.Service;

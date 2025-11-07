@@ -3,7 +3,7 @@ package com.example.electronic_kits_store.app.service;
 import com.example.electronic_kits_store.app.dto.miscellaneous.CreateMiscellaneousRequest;
 import com.example.electronic_kits_store.app.dto.miscellaneous.MiscellaneousDTO;
 import com.example.electronic_kits_store.app.dto.miscellaneous.UpdateMiscellaneousRequest;
-import com.example.electronic_kits_store.app.mapper.MiscellaneousMapper;
+import com.example.electronic_kits_store.app.mapper.products.MiscellaneousMapper;
 import com.example.electronic_kits_store.app.model.Miscellaneous;
 import com.example.electronic_kits_store.app.repository.MiscellaneousRepository;
 import org.springframework.stereotype.Service;

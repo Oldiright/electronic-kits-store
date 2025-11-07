@@ -112,10 +112,8 @@ CREATE TABLE IF NOT EXISTS customer (
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    tel_number VARCHAR(255)
-
-    -- Обмеження: Унікальність на рівні таблиці для електронної пошти (додатково, якщо не підтримується на рівні колонки)
-   -- CONSTRAINT uc_customer_email UNIQUE (email)
+    tel_number VARCHAR(255),
+    password VARCHAR(100) NOT NULL  -- BCrypt хеш (60 символів + запас)
 );
 CREATE INDEX idx_customer_last_name ON customer (last_name);
 CREATE INDEX idx_customer_tel_number ON customer (tel_number);

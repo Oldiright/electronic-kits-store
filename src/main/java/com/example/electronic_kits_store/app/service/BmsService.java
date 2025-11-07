@@ -3,7 +3,7 @@ package com.example.electronic_kits_store.app.service;
 import com.example.electronic_kits_store.app.dto.bms.BmsDTO;
 import com.example.electronic_kits_store.app.dto.bms.CreateBmsRequest;
 import com.example.electronic_kits_store.app.dto.bms.UpdateBmsRequest;
-import com.example.electronic_kits_store.app.mapper.BmsMapper;
+import com.example.electronic_kits_store.app.mapper.products.BmsMapper;
 import com.example.electronic_kits_store.app.model.Bms;
 import com.example.electronic_kits_store.app.repository.BmsRepository;
 import org.springframework.stereotype.Service;

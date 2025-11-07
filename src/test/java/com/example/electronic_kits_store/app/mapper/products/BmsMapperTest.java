@@ -1,7 +1,8 @@
-package com.example.electronic_kits_store.app.mapper;
+package com.example.electronic_kits_store.app.mapper.products;
 
 import com.example.electronic_kits_store.app.dto.bms.BmsDTO;
 import com.example.electronic_kits_store.app.dto.bms.CreateBmsRequest;
+import com.example.electronic_kits_store.app.mapper.products.BmsMapper;
 import com.example.electronic_kits_store.app.model.Bms;
 import com.example.electronic_kits_store.app.model.Product;
 import org.junit.jupiter.api.BeforeAll;

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/inverter")
+@RequestMapping("/api/v1/store/inverter")
 @RequiredArgsConstructor
 public class InverterController {
     private final InverterService inverterService;

@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidPhoneNumber {
-    String massage() default "Номер телефону недійсний або має невірний формат.";
+    String message() default "Номер телефону недійсний або має невірний формат.";
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};

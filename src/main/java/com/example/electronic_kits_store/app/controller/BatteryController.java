@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/battery")
+@RequestMapping("/api/v1/store/battery")
 @RequiredArgsConstructor
 public class BatteryController {
 

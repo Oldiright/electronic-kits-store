@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface CustomerMapper {
+    //todo we need to hashed password,  check it late, maybe this method doesn't need
     Customer toEntity(CreateCustomerRequest createCustomerRequest);
     CustomerDTO toDto(Customer customer);
     default Long getProductIdFromProduct(Product product) {

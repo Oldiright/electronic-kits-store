@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/miscellaneous")
+@RequestMapping("/api/v1/store/miscellaneous")
 @RequiredArgsConstructor
 public class MiscellaneousController {
     private final MiscellaneousService miscellaneousService;

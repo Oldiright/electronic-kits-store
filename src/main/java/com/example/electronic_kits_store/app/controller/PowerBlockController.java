@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/powerBlock")
+@RequestMapping("/api/v1/store/powerBlock")
 @RequiredArgsConstructor
 public class PowerBlockController {
     private final PowerBlockService powerBlockService;

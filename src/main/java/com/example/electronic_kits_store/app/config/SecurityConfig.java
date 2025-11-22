@@ -53,11 +53,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
         http
+                .securityMatcher("api/v1/auth/customer/**", "api/v1/store/**", "api/v1/customer/**")
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("api/v1/auth/customer/**").permitAll()
                         .requestMatchers("api/v1/store/**").permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().hasRole("CUSTOMER")
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -1,5 +1,6 @@
 version: '3.8'
 services:
+  # --- PostgreSQL Service ---
   postgres:
     image: postgres:17
     environment:
@@ -13,8 +14,26 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - postgres-network
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U User -d Store"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 20s
 
+  # --- Redis Service ---
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis_for_store
+    ports:
+      - "6379:6379" # Стандартний порт Redis
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+  # --- pgAdmin Service ---
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin_for_store
@@ -26,14 +45,17 @@ services:
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     networks:
-      - postgres-network
+      - app-network
 
+# --- Мережі та Volumes ---
 networks:
-  postgres-network:
+  app-network:
     driver: bridge
 
 volumes:
   postgres_data:
   pgadmin_data:
+  redis_data:

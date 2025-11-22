@@ -8,6 +8,8 @@ import com.example.electronic_kits_store.app.projection.ProductProjection;
 import com.example.electronic_kits_store.app.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,7 @@ import org.springframework.stereotype.Service;
 public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
-
+    @Cacheable(value = "products", key = "#id")
     public ProductDTO findById(long id) {
         ProductProjection product = productRepository.findProjectedById(id);
         return productMapper.toDto(product);
@@ -31,7 +33,7 @@ public class ProductService {
         Page<ProductProjection> productProjections = productRepository.findAllProjectedBy(pageable);
         return productProjections.map(productMapper::toDto);
     }
-
+    @CacheEvict(value = "products", key = "#id")
     public void delete(long id) {
         productRepository.deleteById(id);
     }
